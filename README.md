@@ -2,7 +2,7 @@
 
 ## Description
 
-Wether is a crowdsourced whether app that displays the weather to the user along with comments and stories (pictures) submitted by other users. This allows user to more accurately understand in the weather in their location, such as how many puddles there are and which way the wind is blowing. 
+Wether is a crowdsourced whether app that displays the weather to the user along with comments and stories (pictures) submitted by other users. This allows user to more accurately understand in the weather in their location, such as how many puddles there are and how much pollen is outside. 
 
 ## Group Members (Name, GitHub, Email)
 
@@ -39,7 +39,7 @@ There can be questions like "Are there puddles?" or "Is there a lot of snow?", o
 
 Maybe my weather app says it's raining, but its actaully not where I am.
 Or maybe it snowed last night, and I want to know how much snow is on the ground to decide whether or not I need boots. (since the prediction can be off)
-Maybe I'm allergic to pollen (I am) and want to know when to start taking meds without having to suffer for the first day.
+Maybe I'm allergic to pollen and want to know when to start taking meds without having to suffer for the first day.
 Sometimes info more detailed than the forecast is nice
 
 People who want more info than what a normal weather app gives. This can be anyone who's planning to go outside and wants to be prepared. The app can also provide a normal weather forecast, so it can replace users' normal weather apps.
