@@ -1,19 +1,29 @@
 # Project Repository
 
-This repository will be used for team projects.
+## Description
 
-Several sets of instructions are included in this repository. They should each be treated as separate assignments with their own due dates and sets of requirements.
+Wether is a crowdsourced whether app that displays the weather to the user along with comments and stories (pictures) submitted by other users. This allows user to more accurately understand in the weather in their location, such as how many puddles there are and which way the wind is blowing. 
 
-1. See the [App Map & Wireframes](instructions-0a-app-map-wireframes.md) and [Prototyping](./instructions-0b-prototyping.md) instructions for the requirements of the initial user experience design of the app.
+## Group Members
 
-1. Delete the contents of this file and replace with the contents of a proper README.md, as described in the [project setup instructions](./instructions-0c-project-setup.md)
+Dan Lu
+TopGap#0075
 
-1. See the [Sprint Planning instructions](instructions-0d-sprint-planning.md) for the requirements of Sprint Planning for each Sprint.
+Hellen Ekpo
+H-E#0264
 
-1. See the [Front-End Development instructions](./instructions-1-front-end.md) for the requirements of the initial Front-End Development.
+Frank Fan
+Berrrr#0971
 
-1. See the [Back-End Development instructions](./instructions-2-back-end.md) for the requirements of the initial Back-End Development.
+## Project History
 
-1. See the [Database Integration instructions](./instructions-3-database.md) for the requirements of integrating a database into the back-end.
+Contributing MD [CONTRIBUTING.md]
 
-1. See the [Deployment instructions](./instructions-4-deployment.md) for the requirements of deploying an app.
+My idea is a crowdsourced weather app for what the weather is like in real time in your area.
+There can be questions like "Are there puddles?" or "Is there a lot of snow?", or even "Do you need allergy meds?"
+
+Maybe my weather app says it's raining, but its actaully not where I am.
+Or maybe it snowed last night, and I want to know how much snow is on the ground to decide whether or not I need boots. (since the prediction can be off)
+Maybe I'm allergic to pollen (I am) and want to know when to start taking meds without having to suffer for the first day.
+Sometimes info more detailed than the forecast is nice
+
