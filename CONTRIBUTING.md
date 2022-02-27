@@ -11,12 +11,12 @@
 
 2. Clone the repository <br>
 
-3a. Open the terminal and navigate to front-end <br>
-3b. Run npm install <br>
-3c. Run npm start <br>
-3d. A page should automatically open in the browser, most likely localhost:3000 <br>
+3. Open the terminal and navigate to front-end <br>
+Run npm install <br>
+Run npm start <br>
+A page should automatically open in the browser, most likely localhost:3000 <br>
 
-4a. Open the terminal and navigate to back-end <br>
-4b. Run npm install <br>
-4c. Run npm start <br>
-4d. A page should automatically open in the browser <br>
+4. Open the terminal and navigate to back-end <br>
+Run npm install <br>
+Run npm start <br>
+A page should automatically open in the browser <br>
