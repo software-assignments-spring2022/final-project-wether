@@ -1,16 +1,15 @@
 # Guide to Contributing
-# Team Norm 
-1. Each team member should finish they assigned part of the project and report any difficulty immediately. 
-2. All team member should join the Discord channel https://discord.gg/urVMz938.
-3. All team member should update there local clone every week and pull before push anything to origin github.
-<<<<<<< HEAD
+## Team Norm 
+1. All team members should finish their assigned part of the project and report any difficulties immediately. 
+2. All team members should join the Discord channel https://discord.gg/urVMz938.
+3. All team members should update their local clone every week and pull before pushing anything to origin github.
 ## Spint cadence
 Each sprint lasts two weeks
 ## Daily standup
 1. Daily standup happens every Monday/Wednesday 12:30pm during class time
-1. members expected to be present synchronously.
-1. agreement that members will not cover for other members who do not participate.
-1. agreement that a member who makes no progress on a task for two standups or more in a row will be reported to management.
+1. Members expected to be present synchronously.
+1. Agreement that members will not cover for other members who do not participate.
+1. Agreement that a member who makes no progress on a task for two standups or more in a row will be reported to management.
 ## Coding standerds
 1. Designate a code editor and code linter all team members will use to standardize code formatting.
 1. Don't over-engineer. Write minimum code to get things working end to end, only then iterate to improve. - Code for each task and spike must be peer-reviewed and pass tests before merging into the main branch of code.
