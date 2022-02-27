@@ -4,22 +4,33 @@
 
 Wether is a crowdsourced whether app that displays the weather to the user along with comments and stories (pictures) submitted by other users. This allows user to more accurately understand in the weather in their location, such as how many puddles there are and which way the wind is blowing. 
 
-## Group Members
+## Group Members (Name, GitHub, Email)
 
 Dan Lu
 TopGap#0075
+dl4422@nyu.edu
 
 Hellen Ekpo
 H-E#0264
+he560@nyu.edu 
 
 Frank Fan
 Berrrr#0971
+wf594@nyu.edu
+
+Brad Feng
+Breadandbacon#3067
+bf2192@nyu.edu
+
+Evan LaBanca
+uwuwu#7914
+el2953@nyu.edu
 
 ## Project History
 
 [Contributing MD](CONTRIBUTING.md)
 
-From Brad: 
+From Brad Feng: 
 
 It's like "weather" but with "we" since everyone contributes.
 
