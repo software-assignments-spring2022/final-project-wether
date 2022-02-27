@@ -6,3 +6,19 @@
 3. All team member should update there local clone every week and pull before push anything to origin github.
 
 # Instruction for setting up the local development
+
+Download [Node.js](https://nodejs.org/en/)
+
+Clone the repository
+
+Open the terminal and navigate to front-end 
+Run npm install
+Run npm start
+
+A page should automatically open in the browser, most likely localhost:3000
+
+Open the terminal and navigate to back-end 
+Run npm install
+Run npm start
+
+A page should automatically open in the browser 
