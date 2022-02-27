@@ -17,13 +17,22 @@ Berrrr#0971
 
 ## Project History
 
-Contributing MD [CONTRIBUTING.md]
+[Contributing MD](CONTRIBUTING.md)
 
-My idea is a crowdsourced weather app for what the weather is like in real time in your area.
+From Brad: 
+
+it's like "weather" but with "we" since everyone contributes
+
+My idea is a crowdsourced weather app for what the weather is like in real time in your area.<br>
 There can be questions like "Are there puddles?" or "Is there a lot of snow?", or even "Do you need allergy meds?"
 
-Maybe my weather app says it's raining, but its actaully not where I am.
-Or maybe it snowed last night, and I want to know how much snow is on the ground to decide whether or not I need boots. (since the prediction can be off)
-Maybe I'm allergic to pollen (I am) and want to know when to start taking meds without having to suffer for the first day.
+Maybe my weather app says it's raining, but its actaully not where I am.<br>
+Or maybe it snowed last night, and I want to know how much snow is on the ground to decide whether or not I need boots. (since the prediction can be off)<br>
+Maybe I'm allergic to pollen (I am) and want to know when to start taking meds without having to suffer for the first day.<br>
 Sometimes info more detailed than the forecast is nice
 
+People who want more info than what a normal weather app gives. This can be anyone who's planning to go outside and wants to be prepared. The app can also provide a normal weather forecast, so it can replace users' normal weather apps.
+
+## Building and Testing
+
+TBD
