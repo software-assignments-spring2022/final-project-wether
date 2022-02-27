@@ -6,25 +6,25 @@ Wether is a crowdsourced whether app that displays the weather to the user along
 
 ## Group Members (Name, GitHub, Email)
 
-Dan Lu
-TopGap#0075
-dl4422@nyu.edu
+Dan Lu <br>
+TopGap#0075 <br>
+dl4422@nyu.edu <br>
 
-Hellen Ekpo
-H-E#0264
-he560@nyu.edu 
+Hellen Ekpo <br>
+H-E#0264 <br>
+he560@nyu.edu <br>
 
-Frank Fan
-Berrrr#0971
-wf594@nyu.edu
+Frank Fan <br>
+Berrrr#0971 <br>
+wf594@nyu.edu <br>
 
-Brad Feng
-Breadandbacon#3067
-bf2192@nyu.edu
+Brad Feng <br>
+Breadandbacon#3067 <br>
+bf2192@nyu.edu <br>
 
-Evan LaBanca
-uwuwu#7914
-el2953@nyu.edu
+Evan LaBanca <br>
+uwuwu#7914 <br>
+el2953@nyu.edu <br>
 
 ## Project History
 
