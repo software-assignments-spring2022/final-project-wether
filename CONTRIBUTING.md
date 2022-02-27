@@ -20,16 +20,12 @@ Each sprint lasts two weeks
 1. Write self documenting code. Use descriptive variable and function names. Avoid unnecessary name shortening.
 1. Don't leave dead/commented out code behind. If you see such code, delete it.
 ## Instruction for setting up the local development
-
-1. Download [Node.js](https://nodejs.org/en/)
-
+1. Download [Node.js](https://nodejs.org/en/) <br>
 2. Clone the repository <br>
-
 3. Open the terminal and navigate to front-end <br>
 Run npm install <br>
 Run npm start <br>
 A page should automatically open in the browser, most likely localhost:3000 <br>
-
 4. Open the terminal and navigate to back-end <br>
 Run npm install <br>
 Run npm start <br>
