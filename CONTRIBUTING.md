@@ -5,7 +5,7 @@
 3. All team member should update there local clone every week and pull before push anything to origin github.
 <<<<<<< HEAD
 ## Spint cadence
-Each sprink takes for two week
+Each sprint lasts two weeks
 ## Daily standup
 1. Daily standup happens every Monday/Wednesday 12:30pm during class time
 1. members expected to be present synchronously.
@@ -20,10 +20,6 @@ Each sprink takes for two week
 1. Write self documenting code. Use descriptive variable and function names. Avoid unnecessary name shortening.
 1. Don't leave dead/commented out code behind. If you see such code, delete it.
 ## Instruction for setting up the local development
-1. Clone final-project-wether locally
-=======
-
-# Instruction for setting up the local development
 
 1. Download [Node.js](https://nodejs.org/en/)
 
@@ -38,4 +34,3 @@ A page should automatically open in the browser, most likely localhost:3000 <br>
 Run npm install <br>
 Run npm start <br>
 A page should automatically open in the browser <br>
->>>>>>> 90cedd4db13412c570395b1c42fadadc42222a38
