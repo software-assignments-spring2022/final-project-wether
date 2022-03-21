@@ -11,15 +11,18 @@ const Comments = props => {
 
   const addComment = (content, e) => {
     e.preventDefault()
+
     const newCmt = new Object()
     console.log(cmtCnt)
     newCmt.content = content
     newCmt.id = cmtCnt++
     setList([...list, newCmt])
+
+    setContent('')
   }
 
   return (
-    <div className='Home'>
+    <div>
       <h1>Comments</h1>
       {list.length <= 0 ? <p id='no-comments'>No comments yet</p> : null}
       <ul className='comment-list'>
