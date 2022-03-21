@@ -1,26 +1,37 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import Comment from './Comment'
+
+let cmtCnt = 0
 
 const Comments = props => {
-  const [table, setTable] = useState(['Username', 'Date-Posted', 'Rating', 'Comment']);
-  const [comment, setComment] = useState('');
-  const addComment = (comment, e) => {
-    e.preventDefault();
-    setTable([...table, comment]);
+  const [list, setList] = useState([])
+  const [content, setContent] = useState('')
+
+  const addComment = (content, e) => {
+    e.preventDefault()
+    const newCmt = new Object()
+    console.log(cmtCnt)
+    newCmt.content = content
+    newCmt.id = cmtCnt++
+    setList([...list, newCmt])
   }
+
   return (
     <div className="Home">
       <h1>Comments</h1>
-      <table>
-        <tbody>
-          {table.map((item, index) => {
-            return <tr key={index}><td key={index}>{item}</td></tr>
-          })}
-        </tbody>
-      </table> 
+      <ul>
+        {list.map(cmt => {
+          return (
+            <li key={cmt.id}>
+              <Comment content={cmt.content}/>
+            </li>
+          )
+        })}
+      </ul> 
       <form>
-        <input type="text" value={comment} onChange={(e) => setComment(e.target.value)}/>
-        <button onClick={(e) => addComment(comment, e)}>Submit</button>
+        <input type="text" value={content} onChange={(e) => setContent(e.target.value)}/>
+        <button onClick={(e) => addComment(content, e)}>Submit</button>
       </form>
       <Link to="/login">Login</Link>
     </div>
