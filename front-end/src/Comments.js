@@ -11,14 +11,16 @@ const Comments = props => {
 
   const addComment = (content, e) => {
     e.preventDefault()
+    
+    if (content){
+      const newCmt = new Object()
+      console.log(cmtCnt)
+      newCmt.content = content
+      newCmt.id = cmtCnt++
+      setList([...list, newCmt])
 
-    const newCmt = new Object()
-    console.log(cmtCnt)
-    newCmt.content = content
-    newCmt.id = cmtCnt++
-    setList([...list, newCmt])
-
-    setContent('')
+      setContent('')
+    }
   }
 
   return (
@@ -40,7 +42,7 @@ const Comments = props => {
           <form>
             <div>
               <Link to='/login'>Login</Link>
-              <button id='new-comment-submit' onClick={(e) => addComment(content, e)}>Submit</button>
+              <button id='new-comment-submit' onClick={(e) => addComment(content, e)}>Post</button>
             </div>
             <input type='text' value={content} placeholder='add a comment' onChange={(e) => setContent(e.target.value)}/>
           </form>
