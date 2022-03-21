@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import Comment from './Comment'
+import './Comments.css'
 
 let cmtCnt = 0
 
@@ -18,9 +19,10 @@ const Comments = props => {
   }
 
   return (
-    <div className="Home">
+    <div className='Home'>
       <h1>Comments</h1>
-      <ul>
+      {list.length <= 0 ? <p id='no-comments'>No comments yet</p> : null}
+      <ul className='comment-list'>
         {list.map(cmt => {
           return (
             <li key={cmt.id}>
@@ -29,11 +31,17 @@ const Comments = props => {
           )
         })}
       </ul> 
-      <form>
-        <input type="text" value={content} onChange={(e) => setContent(e.target.value)}/>
-        <button onClick={(e) => addComment(content, e)}>Submit</button>
-      </form>
-      <Link to="/login">Login</Link>
+      <div id='footer-div'>
+        <div id='footer'>
+          <form>
+            <div>
+              <Link to='/login'>Login</Link>
+              <button id='new-comment-submit' onClick={(e) => addComment(content, e)}>Submit</button>
+            </div>
+            <input type={'text'} value={content} placeholder='add a comment' onChange={(e) => setContent(e.target.value)}/>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
