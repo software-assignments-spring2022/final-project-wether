@@ -18,8 +18,12 @@ h1 {
     justify-content: center;
 }
 
+#footer-padding {
+    height: 100px;
+}
+
 #footer {
-    margin: 5px;
+    margin: 10px;
     width: 400px;
     height: inherit;
 }

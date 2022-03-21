@@ -34,6 +34,7 @@ const Comments = props => {
           )
         })}
       </ul> 
+      <div id='footer-padding'></div>
       <div id='footer-div'>
         <div id='footer'>
           <form>
@@ -41,7 +42,7 @@ const Comments = props => {
               <Link to='/login'>Login</Link>
               <button id='new-comment-submit' onClick={(e) => addComment(content, e)}>Submit</button>
             </div>
-            <input type={'text'} value={content} placeholder='add a comment' onChange={(e) => setContent(e.target.value)}/>
+            <input type='text' value={content} placeholder='add a comment' onChange={(e) => setContent(e.target.value)}/>
           </form>
         </div>
       </div>
