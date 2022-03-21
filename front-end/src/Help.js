@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-
+import "./Help.css"
 const Help = props => {
   return (
-    <div className="Home">
+    <div className="Help">
       <h1>Help</h1>
       <table>
         <tbody>
