@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import Comment from './Comment'
+import './Comments.css'
 
 let cmtCnt = 0
 
@@ -18,7 +19,7 @@ const Comments = props => {
   }
 
   return (
-    <div className="Home">
+    <div className="Comments">
       <h1>Comments</h1>
       <ul>
         {list.map(cmt => {
