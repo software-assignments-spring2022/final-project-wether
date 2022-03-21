@@ -1,14 +1,27 @@
 import { Link } from 'react-router-dom'
 import './Settings.css'
 
+
+const tempSignChange = (event)=>{
+      localStorage.setItem("tempSign",event.target.value)
+      
+}
+
+
 const Settings = props => {
+
+
   return (
+
+
+
     <div className="Settings">
 
 
-      <select className='roundbox-selection'>
-        <option value="F">Fahrenheit</option>
-        <option value="C">Celsius</option>
+      <select className='roundbox-selection' onChange={tempSignChange}>
+        <option />
+        <option value='F'>Fahrenheit</option>
+        <option value='C'>Celsius</option>
       </select>
       <br/>
       
