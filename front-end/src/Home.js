@@ -1,55 +1,107 @@
 import { Link } from 'react-router-dom'
+import sunny from './icons/sunny.png'
+import rain from './icons/rain.png'
+import cloud from './icons/cloud.png'
+
+
+
+
+import search from './icons/search.png'
+import setting from './icons/setting.png'
+import story from './icons/story.png'
+import './Home.css'
 
 const Home = props => {
   return (
     <div className="Home">
-      <Link to="/search">Search</Link>
+      
+      
+    <div className="SearchIcon">     
+      <Link to="/search" >
+        <img src={search} alt="search"></img>
+      </Link>
+    </div>
+ 
+
       <br/>
-      <h1 className="Location">New York, NY</h1>
-      <h1 className="Temperature">70 F</h1>
-      <img className="Icon" src=" " alt="Weather Icon"/>
-      <table className="Forecast">
-        <tbody>
-          <tr>
-            <td>Sunday</td>
-            <td>70 F</td>
-          </tr>
-          <tr>
-            <td>Monday</td>
-            <td>70 F</td>
-          </tr>
-          <tr>
-            <td>Tuesday</td>
-            <td>70 F</td>
-          </tr>
-          <tr>
-            <td>Wednesday</td>
-            <td>70 F</td>
-          </tr>
-          <tr>
-            <td>Thursday</td>
-            <td>70 F</td>
-          </tr>
-          <tr>
-            <td>Friday</td>
-            <td>70 F</td>
-          </tr>
-          <tr>
-            <td>Saturday</td>
-            <td>70 F</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className='Location'>
+        <h1>New York, NY</h1>
+      </div>
+      <div className='currentLocation'>
+        <div className='Temperature'>
+          <h1>70 F</h1> 
+        </div>
+        <div className='Icon'>
+          <img src={sunny} alt="Weather Icon"/>
+        </div>
+      </div>
+      
+      <div className="Forecast">
+        <div class="slide-item">
+            <h3>Sunday</h3>
+            <h3> 72 F</h3>
+            <img className= 'Forecast-weather-icon' src={cloud} alt = "Forecast-weather" ></img>
+        </div>
+        <div class="slide-item">
+            <h3>Monday</h3>
+            <h3> 72 F</h3>
+            <img className= 'Forecast-weather-icon' src={rain} alt = "Forecast-weather" ></img>
+        </div>
+        <div class="slide-item">
+            <h3>Tuesday</h3>
+            <h3> 72 F</h3>
+            <img className= 'Forecast-weather-icon' src={sunny} alt = "Forecast-weather" ></img>
+        </div>
+        <div class="slide-item">
+            <h3>Wednesday</h3>
+            <h3> 72 F</h3>
+            <img className= 'Forecast-weather-icon' src={cloud} alt = "Forecast-weather" ></img>
+        </div>
+        <div class="slide-item">
+            <h3>Thursday</h3>
+            <h3> 72 F</h3>
+            <img className= 'Forecast-weather-icon' src={sunny} alt = "Forecast-weather" ></img>
+        </div>
+        <div class="slide-item">
+            <h3>Friday</h3>
+            <h3> 72 F</h3>
+            <img className= 'Forecast-weather-icon' src={sunny} alt = "Forecast-weather" ></img>
+        </div>
+
+        <div class="slide-item">
+            <h3>Saturday</h3>
+            <h3> 72 F</h3>
+            <img className= 'Forecast-weather-icon' src={cloud} alt = "Forecast-weather" ></img>
+        </div>
+      </div>
+      
       <hr/>
-      <ul className="Comments">
-        <Link to="/comments">Comments</Link>
-        <br/>
-        <Link to="/stories">Stories</Link>
+
+      <div className="Comments">
+        <Link to="/comments">
         <li>Comment 1</li>
         <li>Comment 2</li>
         <li>Comment 3</li>
-      </ul> 
-      <Link to="/settings">Settings</Link>
+        </Link>
+        <br/>
+
+          <Link to="/stories" className='Story'>
+            <img src={story} alt='storyIcon'></img>
+          </Link>
+
+
+      </div> 
+
+
+
+
+      
+      <div className='settings'>
+        <Link to="/settings">
+          <img src={setting} alt='setting'></img>
+        </Link>
+      </div>
+      
     </div>
   );
 }
