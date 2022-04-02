@@ -1,0 +1,60 @@
+.SearchIcon{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.Location{
+    margin-left: 5%;
+}
+.currentLocation{
+    display: flex;
+    margin-left: 40%;
+}
+.Temperature{
+    flex-direction: row;
+    align-items:center;
+}
+.Icon{
+    flex-direction: row;
+
+}
+.Forecast{
+    margin-left: 25%;
+    width:50%;
+    height: 200px;
+    display: -webkit-box;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling:touch;
+}
+
+.slide-item{
+    width: 100px;
+    height: 150px;
+    border:1px solid #ccc;
+    margin-right: 30px;
+    text-align: center;
+}
+.Forecast-weather-icon{
+    width: 50px;
+    height: 50px;
+}
+.Comments{
+    border: 1px solid black;
+    margin-left: 10%;
+    margin-right:10%;
+}
+.Story{
+    float: right;
+    margin-top: -40px;
+}
+.settings{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+p {
+    text-align: center;
+}
+body {
+    background-color: skyblue;
+}

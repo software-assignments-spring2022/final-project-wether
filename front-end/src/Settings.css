@@ -1,0 +1,26 @@
+.Settings{
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.roundbox{
+
+    border-radius: 10px;
+    background: rgb(0, 204, 255);
+    text-align: center;
+    padding: 10px;
+    width: 50px;
+    height: 30px;
+}
+.roundbox-selection{
+    border-radius: 10px;
+    background: rgb(0, 204, 255);
+    text-align: center;
+    width: 150px;
+    height: 50px;
+}
+
+body {
+    background-color: skyblue;
+}

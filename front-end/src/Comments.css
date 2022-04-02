@@ -1,0 +1,66 @@
+h1 {
+    display: flex;
+    justify-content: center
+}
+
+#no-comments {
+    display: flex;
+    justify-content: center;
+    color: dimgray;
+}
+
+#footer-div {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+}
+
+#footer-padding {
+    height: 100px;
+}
+
+#footer {
+    margin: 10px;
+    width: 400px;
+    height: inherit;
+}
+
+#footer>form {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#footer>form>div {
+    margin-bottom: 5px;
+    height: 30px;
+}
+
+#footer>form>div>a {
+    vertical-align: middle;
+    height: inherit;
+}
+
+#footer>form>div>button {
+    float: right;
+    height: inherit;
+}
+
+#footer>form>input {
+    height: 30px;
+}
+
+.comment-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: skyblue;
+}
