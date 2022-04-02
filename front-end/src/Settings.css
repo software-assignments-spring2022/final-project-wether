@@ -1,5 +1,5 @@
 .Settings{
-    margin-top: 20%;
+    margin-top: 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,4 +19,8 @@
     text-align: center;
     width: 150px;
     height: 50px;
+}
+
+body {
+    background-color: skyblue;
 }

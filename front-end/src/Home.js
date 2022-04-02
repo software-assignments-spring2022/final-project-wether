@@ -7,11 +7,6 @@ import setting from './icons/setting.png'
 import story from './icons/story.png'
 import './Home.css'
 
-
-
-
-
-
 const Home = props => {
   let tempSign = localStorage.getItem("tempSign");
   if(tempSign == null){
@@ -22,11 +17,11 @@ const Home = props => {
     <div className="Home">
       
       
-    <div className="SearchIcon">     
+    {/* <div className="SearchIcon">     
       <Link to="/search" >
         <img src={search} alt="search"></img>
       </Link>
-    </div>
+    </div> */}
  
 
       <br/>
@@ -85,9 +80,7 @@ const Home = props => {
 
       <div className="Comments">
         <Link to="/comments">
-        <li>Comment 1</li>
-        <li>Comment 2</li>
-        <li>Comment 3</li>
+          <p>Read comments...</p>
         </Link>
         <br/>
 

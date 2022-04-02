@@ -12,19 +12,19 @@ const About = props => {
           </tr>
           <tr>
             <td>Hellen Ekpo - he560</td>
-            <td>Description</td>
+            <td>Description: Senior in CS taking Agile Software Engineering</td>
           </tr>
           <tr>
             <td>Frank Fan - wf594</td>
-            <td>Description</td>
+            <td>Description: Senior in CS taking Agile Software Engineering</td>
           </tr>
           <tr>
             <td>Brad Feng - bf2192</td>
-            <td>Description</td>
+            <td>Description: Sophomore in CS taking Agile Software Engineering</td>
           </tr>
           <tr>
             <td>Evan LeBanca- el2953</td>
-            <td>Description</td>
+            <td>Description: Sophomore in CS taking Agile Software Engineering</td>
           </tr>
         </tbody>
       </table>

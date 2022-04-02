@@ -9,15 +9,8 @@ const tempSignChange = (event)=>{
 
 
 const Settings = props => {
-
-
   return (
-
-
-
     <div className="Settings">
-
-
       <select className='roundbox-selection' onChange={tempSignChange}>
         <option />
         <option value='F'>Fahrenheit</option>

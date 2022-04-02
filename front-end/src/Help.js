@@ -7,28 +7,17 @@ const Help = props => {
       <table>
         <tbody>
           <tr>
-            <td>Question 1</td>
+            <td>How to set celcius or farenheit?</td>
           </tr>
           <tr>
-            <td>Answer 1</td>
+            <td>It's in settings!</td>
+          </tr>
+          <br/>
+          <tr>
+            <td>Where does the weather data come from?</td>
           </tr>
           <tr>
-            <td>Question 2</td>
-          </tr>
-          <tr>
-            <td>Answer 2</td>
-          </tr>
-          <tr>
-            <td>Question 3</td>
-          </tr>
-          <tr>
-            <td>Answer 3</td>
-          </tr>
-          <tr>
-            <td>Question 4</td>
-          </tr>
-          <tr>
-            <td>Answer 4</td>
+            <td>Weather API - TBD</td>
           </tr>
         </tbody>
       </table>

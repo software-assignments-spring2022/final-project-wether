@@ -1,4 +1,8 @@
 import { Link } from 'react-router-dom'
+import './Search.css'
+import sunny from './icons/sunny.png'
+import rain from './icons/rain.png'
+import cloud from './icons/cloud.png'
 
 const Search = props => {
   return (
@@ -11,19 +15,19 @@ const Search = props => {
       <table>
         <tbody>
           <tr>
-            <td><img src=" " alt="img"></img></td>
-            <td>Location</td>
-            <td>Temperature</td>
+            <td><img src={sunny} alt="img"></img></td>
+            <td>New York</td>
+            <td>72 F</td>
           </tr>
           <tr>
-            <td><img src=" " alt="img"></img></td>
-            <td>Location</td>
-            <td>Temperature</td>
+            <td><img src={sunny} alt="img"></img></td>
+            <td>Chicago</td>
+            <td>75 F</td>
           </tr>
           <tr>
-            <td><img src=" " alt="img"></img></td>
-            <td>Location</td>
-            <td>Temperature</td>
+            <td><img src={sunny} alt="img"></img></td>
+            <td>Boston</td>
+            <td>67 F</td>
           </tr>
         </tbody>
       </table>
