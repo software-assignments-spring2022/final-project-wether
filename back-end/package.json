@@ -4,7 +4,7 @@
   "description": "back end for Wether",
   "main": "index.js",
   "scripts": {
-    "test": "\"echo no test script\""
+    "test": "echo no test script"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/software-assignments-spring2022/final-project-wether/issues"
   },
-  "homepage": "https://github.com/software-assignments-spring2022/final-project-wether#readme"
+  "homepage": "https://github.com/software-assignments-spring2022/final-project-wether#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
