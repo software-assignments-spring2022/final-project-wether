@@ -38,38 +38,38 @@ const Home = props => {
       </div>
       
       <div className="Forecast">
-        <div class="slide-item">
+        <div className="slide-item">
             <h3>Sunday</h3>
             <h3> 72 {tempSign}</h3>
             <img className= 'Forecast-weather-icon' src={cloud} alt = "Forecast-weather" ></img>
         </div>
-        <div class="slide-item">
+        <div className="slide-item">
             <h3>Monday</h3>
             <h3> 72 {tempSign}</h3>
             <img className= 'Forecast-weather-icon' src={rain} alt = "Forecast-weather" ></img>
         </div>
-        <div class="slide-item">
+        <div className="slide-item">
             <h3>Tuesday</h3>
             <h3> 72 {tempSign}</h3>
             <img className= 'Forecast-weather-icon' src={sunny} alt = "Forecast-weather" ></img>
         </div>
-        <div class="slide-item">
+        <div className="slide-item">
             <h3>Wednesday</h3>
             <h3> 72 {tempSign}</h3>
             <img className= 'Forecast-weather-icon' src={cloud} alt = "Forecast-weather" ></img>
         </div>
-        <div class="slide-item">
+        <div className="slide-item">
             <h3>Thursday</h3>
             <h3> 72 {tempSign}</h3>
             <img className= 'Forecast-weather-icon' src={sunny} alt = "Forecast-weather" ></img>
         </div>
-        <div class="slide-item">
+        <div className="slide-item">
             <h3>Friday</h3>
             <h3> 72 {tempSign}</h3>
             <img className= 'Forecast-weather-icon' src={sunny} alt = "Forecast-weather" ></img>
         </div>
 
-        <div class="slide-item">
+        <div className="slide-item">
             <h3>Saturday</h3>
             <h3> 72 {tempSign}</h3>
             <img className= 'Forecast-weather-icon' src={cloud} alt = "Forecast-weather" ></img>
