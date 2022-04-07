@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import Comment from './Comment'
 import './Comments.css'
+import axios from 'axios'
 
 let cmtCnt = 0
 
@@ -20,6 +21,18 @@ const Comments = props => {
       setList([...list, newCmt])
 
       setContent('')
+
+      axios
+      .post(`http://localhost:4000/messages/save`, {
+        // name: name,
+        message: newCmt,
+      })
+      // .then(response => {
+      // 
+      // })
+      .catch(err => {
+        console.log(err)
+      })
     }
   }
 
