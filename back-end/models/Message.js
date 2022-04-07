@@ -11,7 +11,7 @@ const messageSchema = new Schema(
       type: String,
       required: true,
     },
-    time {
+    time: {
       type: String,
       required: true,
     },
