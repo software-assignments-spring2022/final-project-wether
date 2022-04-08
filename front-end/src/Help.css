@@ -1,12 +1,12 @@
-.Help{
+.Help {
     text-align: center;
 }
 
 table {
     margin-left: auto;
     margin-right: auto;
-  }
+}
 
 body {
-    background-color: skyblue;
+    background-color: rgb(200, 240, 255);
 }

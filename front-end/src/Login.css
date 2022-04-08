@@ -1,9 +1,9 @@
-.Login{
-  text-align: center;
-  display: block;
-  margin: 0 auto;
+.Login {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
 }
 
 body {
-  background-color: skyblue;
+    background-color: rgb(200, 240, 255);
 }

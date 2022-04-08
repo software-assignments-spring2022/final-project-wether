@@ -1,8 +1,9 @@
 .comment-class {
     border-width: 1px;
-    border-color: gray;
+    border-color: rgb(0, 73, 99);
     border-style: solid;
     border-radius: 2px;
+    background-color: rgb(231, 249, 255);
     text-align: left;
     margin: auto;
     margin-top: 10px;
@@ -17,6 +18,7 @@
     margin: 5px;
     width: 100%;
     overflow: auto;
+    text-align: left;
 }
 
 .vote-buttons {

@@ -1,9 +1,11 @@
-.Stories{
+.Stories {
     text-align: center;
 }
-.storyPosts{
+
+.storyPosts {
     margin-left: 45%;
 }
+
 body {
-    background-color: skyblue;
+    background-color: rgb(200, 240, 255);
 }

@@ -1,60 +1,70 @@
-.SearchIcon{
+.SearchIcon {
     position: absolute;
     top: 5px;
     right: 5px;
 }
-.Location{
+
+.Location {
     margin-left: 5%;
 }
-.currentLocation{
+
+.currentLocation {
     display: flex;
     margin-left: 40%;
 }
-.Temperature{
-    flex-direction: row;
-    align-items:center;
-}
-.Icon{
-    flex-direction: row;
 
+.Temperature {
+    flex-direction: row;
+    align-items: center;
 }
-.Forecast{
+
+.Icon {
+    flex-direction: row;
+}
+
+.Forecast {
     margin-left: 25%;
-    width:50%;
+    width: 50%;
     height: 200px;
     display: -webkit-box;
     overflow-x: scroll;
-    -webkit-overflow-scrolling:touch;
+    -webkit-overflow-scrolling: touch;
 }
 
-.slide-item{
+.slide-item {
     width: 100px;
     height: 150px;
-    border:1px solid #ccc;
+    border: 1px solid #ccc;
     margin-right: 30px;
     text-align: center;
 }
-.Forecast-weather-icon{
+
+.Forecast-weather-icon {
     width: 50px;
     height: 50px;
 }
-.Comments{
+
+.Comments {
     border: 1px solid black;
     margin-left: 10%;
-    margin-right:10%;
+    margin-right: 10%;
 }
-.Story{
+
+.Story {
     float: right;
     margin-top: -40px;
 }
-.settings{
+
+.settings {
     position: absolute;
     bottom: 10px;
     right: 10px;
 }
+
 p {
     text-align: center;
 }
+
 body {
-    background-color: skyblue;
+    background-color: rgb(200, 240, 255);
 }

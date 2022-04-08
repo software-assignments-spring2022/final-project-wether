@@ -11,9 +11,12 @@ h1 {
 
 #footer-div {
     position: fixed;
+    border-top: 2px;
+    border-style: solid;
+    border-color: rgb(0, 58, 79);
     bottom: 0;
     width: 100%;
-    background-color: lightgray;
+    background-color: rgb(155, 190, 201);
     display: flex;
     justify-content: center;
 }
@@ -44,6 +47,7 @@ h1 {
 #footer>form>div>a {
     vertical-align: middle;
     height: inherit;
+    color: rgb(0, 27, 36);
 }
 
 #footer>form>div>button {
@@ -59,8 +63,4 @@ h1 {
     list-style-type: none;
     padding: 0;
     margin: 0;
-}
-
-body {
-    background-color: skyblue;
 }
