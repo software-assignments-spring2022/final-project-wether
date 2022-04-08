@@ -9,6 +9,37 @@
     margin-top: 10px;
     width: 50%;
     min-height: 100px;
+}
+
+.comment-header {
+    border-width: inherit;
+    border-color: inherit;
+    border-style: inherit;
+    border-radius: 2px;
+    background-color: rgb(70, 101, 113);
+    margin: -1px;
+    padding: 0;
+    top: 0;
+    display: flex;
+}
+
+.comment-author {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    padding: 5px;
+    margin: 0;
+    color: rgb(231, 249, 255);
+}
+
+.comment-rating {
+    float: right;
+    padding: 5px;
+    margin: 0;
+    color: rgb(231, 249, 255);
+}
+
+.comment-body {
     padding: 5px;
     display: flex;
 }

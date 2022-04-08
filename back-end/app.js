@@ -22,49 +22,59 @@ app.get('/', function(req, res) {
 });
 
 let tempComments = []
+let cmtUID = 0 // unique id
 
 app.get('/comments', async(req, res) => {
-    // try {
-    //     const messages = await Message.find({})
-    //     res.json({
-    //         messages: messages,
-    //         status: 'success',
-    //     })
-    // } catch (err) {
-    //     console.error(err)
-    //     res.status(400).json({
-    //         error: err,
-    //         status: 'failed',
-    //     })
-    // }
-
     res.json({
         comments: tempComments,
         status: 'success',
     })
 })
 
-app.post('/comments/save', async(req, res) => {
-    // try {
-    //     const message = await Message.create({
-    //         name: req.body.name,
-    //         message: req.body.message,
-    //     })
-    //     return res.json({
-    //         message: message,
-    //         status: 'success'
-    //     })
-    // } catch (err) {
-    //     console.error(err)
-    //     return res.status(400).json({
-    //         error: err,
-    //         status: 'fail',
-    //     })
-    // }
+app.post('/comments/new', async(req, res) => {
+    try {
+        newCmt = {}
+        newCmt.content = req.body.content
+        newCmt.author = req.body.author
+        newCmt.rating = 0
+        newCmt.uid = cmtUID++;
 
-    tempComments.push(req.body.content)
+        tempComments.push(newCmt)
 
-    res.sendStatus(200); // ok
+        res.sendStatus(200); // ok
+    } catch (err) {
+        console.error(err)
+        res.sendStatus(400); // ew
+    }
+})
+
+function find_cmt_ind_by_uid(uid) {
+    for (let i = 0; i < tempComments.length; ++i) {
+        if (tempComments[i].uid == uid) {
+            return i
+        }
+    }
+    return -1
+}
+
+app.post('/comments/vote', async(req, res) => {
+    try {
+        let i = find_cmt_ind_by_uid(req.body.uid)
+        if (i < 0) {
+            throw 'invalid comment uid: ' + req.body.uid.toString()
+        }
+
+        if (req.body.good) {
+            tempComments[i].rating += 1
+        } else {
+            tempComments[i].rating -= 1
+        }
+
+        res.sendStatus(200); // ok
+    } catch (err) {
+        console.error(err)
+        res.sendStatus(400); // ew
+    }
 })
 
 module.exports = app

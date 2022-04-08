@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Comment from './Comment'
-import './Comments.css'
 import axios from 'axios'
+import './Comments.css'
+
 
 let cmtCnt = 0
 
@@ -15,14 +16,16 @@ const Comments = props => {
     
     if (content){
       axios
-      .post(`http://localhost:4000/comments/save`, {
+      .post(`http://localhost:4000/comments/new`, {
         content: content,
+        author: 'BobTheBuilder12'
       })
+      .then(
+        () => setContent('')
+      )
       .catch(err => {
         console.log(err)
       })
-
-      setContent('')
     }
   }
 
@@ -37,8 +40,11 @@ const Comments = props => {
         cmtCnt = 0
         comments.forEach(c => {
           const newCmt = {}
-          newCmt.content = c
-          newCmt.id = cmtCnt++
+          newCmt.content = c.content
+          newCmt.author = c.author
+          newCmt.rating = c.rating
+          newCmt.uid = c.uid
+          newCmt.id = cmtCnt++ // for react
           newCmtList.push(newCmt)
         })
 
@@ -51,7 +57,7 @@ const Comments = props => {
 
     const intervalHandle = setInterval(() => {
       fetchComments()
-    }, 3000)
+    }, 1000)
 
     return e => {
       clearInterval(intervalHandle)
@@ -66,7 +72,7 @@ const Comments = props => {
         {cmtList.map(cmt => {
           return (
             <li key={cmt.id}>
-              <Comment content={cmt.content}/>
+              <Comment content={cmt.content} author={cmt.author} rating={cmt.rating} cmtUID={cmt.uid}/>
             </li>
           )
         })}
