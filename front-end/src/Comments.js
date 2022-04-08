@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Comment from './Comment'
 import './Comments.css'
 import axios from 'axios'
@@ -7,41 +7,63 @@ import axios from 'axios'
 let cmtCnt = 0
 
 const Comments = props => {
-  const [list, setList] = useState([])
+  const [cmtList, setCmtList] = useState([])
   const [content, setContent] = useState('')
 
-  const addComment = (content, e) => {
+  const postComment = (content, e) => {
     e.preventDefault()
     
     if (content){
-      const newCmt = new Object()
-      console.log(cmtCnt)
-      newCmt.content = content
-      newCmt.id = cmtCnt++
-      setList([...list, newCmt])
-
-      setContent('')
-
       axios
-      .post(`http://localhost:4000/messages/save`, {
-        // name: name,
-        message: newCmt,
+      .post(`http://localhost:4000/comments/save`, {
+        content: content,
       })
-      // .then(response => {
-      // 
-      // })
       .catch(err => {
         console.log(err)
       })
+
+      setContent('')
     }
   }
+
+  const fetchComments = () => {
+    axios
+      .get(`http://localhost:4000/comments`)
+      .then(response => {
+        const comments = response.data.comments
+        // console.log(comments)
+        let newCmtList = []
+
+        cmtCnt = 0
+        comments.forEach(c => {
+          const newCmt = {}
+          newCmt.content = c
+          newCmt.id = cmtCnt++
+          newCmtList.push(newCmt)
+        })
+
+        setCmtList(newCmtList)
+      })
+  }
+
+  useEffect(() => {
+    fetchComments()
+
+    const intervalHandle = setInterval(() => {
+      fetchComments()
+    }, 3000)
+
+    return e => {
+      clearInterval(intervalHandle)
+    }
+  }, [])
 
   return (
     <div>
       <h1>Comments</h1>
-      {list.length <= 0 ? <p id='no-comments'>No comments yet</p> : null}
+      {cmtList.length <= 0 ? <p id='no-comments'>No comments yet</p> : null}
       <ul className='comment-list'>
-        {list.map(cmt => {
+        {cmtList.map(cmt => {
           return (
             <li key={cmt.id}>
               <Comment content={cmt.content}/>
@@ -55,7 +77,7 @@ const Comments = props => {
           <form>
             <div>
               <Link to='/login'>Login</Link>
-              <button id='new-comment-submit' onClick={(e) => addComment(content, e)}>Post</button>
+              <button id='new-comment-submit' onClick={(e) => postComment(content, e)}>Post</button>
             </div>
             <input type='text' value={content} placeholder='add a comment' onChange={(e) => setContent(e.target.value)}/>
           </form>
