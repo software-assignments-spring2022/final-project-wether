@@ -49,6 +49,7 @@ const Help = props => {
           </tr>
         </tbody>
       </table>
+	  <h1>If you have questions about any more information, please access the About page to contact the creators</h1>
     </div>
   );
 }
