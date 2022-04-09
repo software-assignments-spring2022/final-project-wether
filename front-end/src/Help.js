@@ -4,6 +4,7 @@ const Help = props => {
   return (
     <div className="Help">
       <h1>Help</h1>
+	  <h3>Frequently Asked Questions</h3>
       <table>
         <tbody>
           <tr>
