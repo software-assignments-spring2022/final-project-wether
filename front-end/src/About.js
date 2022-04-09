@@ -28,6 +28,7 @@ const About = props => {
           </tr>
         </tbody>
       </table>
+	  <div className='roundbox_1'><Link to="/settings">Back</Link></div>
     </div>
   );
 }
