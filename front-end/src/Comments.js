@@ -16,7 +16,7 @@ const Comments = props => {
     
     if (content){
       axios
-      .post(`http://localhost:4000/comments/new`, {
+      .post(`http://localhost:3000/comments/new`, {
         content: content,
         author: 'BobTheBuilder12'
       })
@@ -31,7 +31,7 @@ const Comments = props => {
 
   const fetchComments = () => {
     axios
-      .get(`http://localhost:4000/comments`)
+      .get(`http://localhost:3000/comments`)
       .then(response => {
         const comments = response.data.comments
         // console.log(comments)

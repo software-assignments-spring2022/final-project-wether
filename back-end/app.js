@@ -1,5 +1,6 @@
 // require('dotenv').config({ silent: true })
 const express = require("express")
+const PORT = 3000;
 const app = express()
     // const morgan = require('morgan')
     // const cors = require('cors') 
@@ -18,7 +19,12 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res) {
-    res.render('index', {});
+	console.log("Success");
+   // res.render('index', {});
+});
+
+app.listen(PORT, () => {
+	console.log('Server is listening on port: ${PORT}');
 });
 
 let tempComments = []
@@ -29,7 +35,7 @@ app.get('/comments', async(req, res) => {
         comments: tempComments,
         status: 'success',
     })
-})
+});
 
 app.post('/comments/new', async(req, res) => {
     try {
@@ -40,13 +46,15 @@ app.post('/comments/new', async(req, res) => {
         newCmt.uid = cmtUID++;
 
         tempComments.push(newCmt)
-
+		console.log('Success');
         res.sendStatus(200); // ok
     } catch (err) {
         console.error(err)
         res.sendStatus(400); // ew
     }
-})
+});
+
+
 
 function find_cmt_ind_by_uid(uid) {
     for (let i = 0; i < tempComments.length; ++i) {
