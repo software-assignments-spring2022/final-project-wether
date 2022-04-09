@@ -50,7 +50,9 @@ const Help = props => {
         </tbody>
       </table>
 	  <h1>If you have questions about any more information, please access the About page to contact the creators</h1>
+	  <div className='roundbox_1'><Link to="/settings">Back</Link></div>
     </div>
+
   );
 }
 
