@@ -24,7 +24,7 @@ const Login = props => {
       <label htmlFor="password">Password: </label>
       <input type="text" id="password" value={password} onInput={e => setPassword(e.target.value)}/>
       <br/>
-      <button id='login' onClick={signin}>Sgin in</button>
+      <button id='login' onClick={signin}>Sign in</button>
       {/* <br/>
       <button>Login with Google</button> */}
     </div>

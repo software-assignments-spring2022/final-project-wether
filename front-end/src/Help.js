@@ -1,6 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import "./Help.css"
+import { useHistory } from "react-router-dom";
 const Help = props => {
+
   return (
     <div className="Help">
       <h1>Help</h1>
@@ -50,6 +52,8 @@ const Help = props => {
         </tbody>
       </table>
 	  <h1>If you have questions about any more information, please access the About page to contact the creators</h1>
+	  <a HREF="history.go(-1)">Click here to go back to previous page</a>
+	  <button onclick="history.back()">Go Back</button>
 	  <div className='roundbox_1'><Link to="/settings">Back</Link></div>
     </div>
 

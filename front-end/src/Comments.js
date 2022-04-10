@@ -6,10 +6,11 @@ import './Comments.css'
 
 
 let cmtCnt = 0
-
+let commentuid = []
 const Comments = props => {
   const [cmtList, setCmtList] = useState([])
   const [content, setContent] = useState('')
+  const [uid_1, setUID] = useState('')
 
   const postComment = (content, e) => {
     e.preventDefault()
@@ -28,13 +29,14 @@ const Comments = props => {
       })
     }
   }
+  
 
   const fetchComments = () => {
     axios
       .get(`http://localhost:3000/comments`)
       .then(response => {
         const comments = response.data.comments
-        // console.log(comments)
+        console.log(comments)
         let newCmtList = []
 
         cmtCnt = 0
@@ -44,6 +46,7 @@ const Comments = props => {
           newCmt.author = c.author
           newCmt.rating = c.rating
           newCmt.uid = c.uid
+		  commentuid.push(c.uid)
           newCmt.id = cmtCnt++ // for react
           newCmtList.push(newCmt)
         })
@@ -51,12 +54,14 @@ const Comments = props => {
         setCmtList(newCmtList)
       })
   }
+  
 
+  
   useEffect(() => {
     fetchComments()
-
     const intervalHandle = setInterval(() => {
       fetchComments()
+	  
     }, 1000)
 
     return e => {

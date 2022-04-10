@@ -42,7 +42,7 @@ app.post('/comments/new', async(req, res) => {
         newCmt = {}
         newCmt.content = req.body.content
         newCmt.author = req.body.author
-        newCmt.rating = 0
+        newCmt.rating = 0;
         newCmt.uid = cmtUID++;
 
         tempComments.push(newCmt)
@@ -73,13 +73,16 @@ app.post('/comments/vote', async(req, res) => {
         }
 
         if (req.body.good) {
+			console.log("We are attempting to the vote")
             tempComments[i].rating += 1
         } else {
+			console.log("We are down voting")
             tempComments[i].rating -= 1
         }
-
+		console.log('Success_upvote');
         res.sendStatus(200); // ok
     } catch (err) {
+		console.log("Idk whas happening")
         console.error(err)
         res.sendStatus(400); // ew
     }
