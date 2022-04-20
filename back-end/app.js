@@ -12,10 +12,29 @@ const mongoose = require('mongoose')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-mongoose
-  .connect(`${process.env.DB_CONNECTION_STRING}`)
-  .then(data => console.log(`Connected to MongoDB`))
-  .catch(err => console.error(`Failed to connect to MongoDB: ${err}`))
+main().catch(err => console.log(err));
+async function main() {
+	await mongoose.connect('mongodb://localhost:27017')
+	const userSchema = new mongoose.Schema({
+		username: String,
+		password: String,
+		date_account_created: String
+	});
+	userSchema.methods.notifycreation = function created() {
+		const print_creation = "This account was created" +
+			  this.date_account_created;
+		console.log(greeting);
+	}
+	const User = mongoose.model('User', userSchema);
+	const user1 = new User({username: "hellenekpo", password:
+						   "agileiscool", date_account_created: Date.now()});
+	console.log(user1.name);
+	await user1.save();
+	user1.created()
+	const users = await User.find();
+	console.log(users);
+}
+	
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
