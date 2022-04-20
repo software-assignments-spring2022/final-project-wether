@@ -23,14 +23,14 @@ async function main() {
 	userSchema.methods.notifycreation = function created() {
 		const print_creation = "This account was created" +
 			  this.date_account_created;
-		console.log(greeting);
+		console.log(print_creation);
 	}
 	const User = mongoose.model('User', userSchema);
 	const user1 = new User({username: "hellenekpo", password:
 						   "agileiscool", date_account_created: Date.now()});
 	console.log(user1.name);
 	await user1.save();
-	user1.created()
+	user1.notifycreation();
 	const users = await User.find();
 	console.log(users);
 }

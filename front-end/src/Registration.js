@@ -7,7 +7,7 @@ const Registration = props => {
 	  <div className="Registration">
       <h1>Registration</h1>
 	  <h3>Don't have an account yet? Create one below!</h3>
-		
+      </div>
 	);
 }
 
