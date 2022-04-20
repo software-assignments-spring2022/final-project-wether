@@ -26,42 +26,36 @@ async function main() {
 		console.log(print_creation);
 	}
 	const User = mongoose.model('User', userSchema);
-	console.log("Checking if hellenekpo exists\n");
-	check_user_exists(User, "hellen");
-	const user1 = new User({username: "hellenekpo", password:
-						   "agileiscool", date_account_created: Date.now()});
-	await user1.save();
-	console.log(user1.username);
-	console.log("Checking if hellenekpo exists after adding the user\n");
-	check_user_exists(User, user1.username);
-	const user2 = new User({username: "hellenekpo", password:
-						   "agileiscool123", date_account_created: Date.now()});
-	await user2.save();
-	console.log(user2.username);
-	console.log("Now adding helenaekpo\n");
-	const user3 = new User({username: "helenaekpo", password:
-						   "agileiscool", date_account_created: Date.now()});
-	check_user_exists(User, user3.username);
-	console.log(user3.username);
-	await user3.save();
-	user1.notifycreation();
+	setTimeout(() => {find_user(User, "hellenekpo")}, 5000);
+	add_user(User, "hellenekpo", "agile");
+	setTimeout(() => {find_user(User, "hellenekpo")}, 5000);
+	//const users = await User.find();
+	//console.log(users);
 }
 
-async function check_user_exists(User, currname) {
-	const users = await User.find();
-	console.log(users);
-	for (let i = 0; i < users.length; ++i) {
-		if (i.usrename == currname) {
-			console.log("this user already exists, not adding them to the database again!");
-			return true;
-		}
+async function find_user(User, currname) {
+	const users = await User.find({username: "hellenekpo"});
+	if (users.length > 0) {
+		console.log("This user already exist!")
+		return new Promise((resolve, reject) => {
+			console.log("Yeah");
+			resolve();
+		});
 	}
-	console.log("this user doesn't exist, we can add them!, yay");
-	return false;
-	
+	else {
+		return new Promise((resolve, reject) => {
+			console.log("Nah");
+			reject();
+		})
+	}
 }
 
-async function add_user()
+
+
+async function add_user(User, user_name, pass_word) {
+	const user = new User({username: user_name, password: pass_word, data_account_created: Date.now()});
+	await user.save();
+}
 	
 
 app.use(function(req, res, next) {
