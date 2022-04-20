@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import { userState } from 'react'
+//import { Link } from 'react-router-dom'
+//import { userState } from 'react'
 import './Registration.css'
 
 const Registration = props => {
