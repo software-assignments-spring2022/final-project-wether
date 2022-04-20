@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import './Search.css'
 import sunny from './icons/sunny.png'
-import rain from './icons/rain.png'
-import cloud from './icons/cloud.png'
+//import rain from './icons/rain.png'
+//import cloud from './icons/cloud.png'
 
 const Search = props => {
   return (

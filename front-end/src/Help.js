@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import "./Help.css"
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
 const Help = props => {
 
   return (

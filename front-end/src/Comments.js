@@ -10,7 +10,7 @@ let commentuid = []
 const Comments = props => {
   const [cmtList, setCmtList] = useState([])
   const [content, setContent] = useState('')
-  const [uid_1, setUID] = useState('')
+  //const [uid_1, setUID] = useState('')
 
   const postComment = (content, e) => {
     e.preventDefault()
