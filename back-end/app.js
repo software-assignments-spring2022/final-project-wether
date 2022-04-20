@@ -31,8 +31,21 @@ async function main() {
 	console.log(user1.name);
 	await user1.save();
 	user1.notifycreation();
-	const users = await User.find();
-	console.log(users);
+	check_user_exists(User, user1.name);
+}
+
+async function check_user_exists(User, currname) {
+	const users = await User.find;
+	for (let i = 0; i < users.length; ++i) {
+		console.log(i);
+		if (i.name == currname) {
+			console.log("this user already exists, not adding them to the database again!");
+			return true;
+		}
+		console.log("this user doesn't exist, we can add them!");
+	}
+	return false;
+	
 }
 	
 
