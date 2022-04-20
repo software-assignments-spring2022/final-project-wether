@@ -1,5 +1,5 @@
 // require('dotenv').config({ silent: true })
-const express = require("express")
+const express = require("express");
 const PORT = 3000;
 const app = express()
     // const morgan = require('morgan')
@@ -26,14 +26,42 @@ async function main() {
 		console.log(print_creation);
 	}
 	const User = mongoose.model('User', userSchema);
+	console.log("Checking if hellenekpo exists\n");
+	check_user_exists(User, "hellen");
 	const user1 = new User({username: "hellenekpo", password:
 						   "agileiscool", date_account_created: Date.now()});
-	console.log(user1.name);
 	await user1.save();
+	console.log(user1.username);
+	console.log("Checking if hellenekpo exists after adding the user\n");
+	check_user_exists(User, user1.username);
+	const user2 = new User({username: "hellenekpo", password:
+						   "agileiscool123", date_account_created: Date.now()});
+	await user2.save();
+	console.log(user2.username);
+	console.log("Now adding helenaekpo\n");
+	const user3 = new User({username: "helenaekpo", password:
+						   "agileiscool", date_account_created: Date.now()});
+	check_user_exists(User, user3.username);
+	console.log(user3.username);
+	await user3.save();
 	user1.notifycreation();
+}
+
+async function check_user_exists(User, currname) {
 	const users = await User.find();
 	console.log(users);
+	for (let i = 0; i < users.length; ++i) {
+		if (i.usrename == currname) {
+			console.log("this user already exists, not adding them to the database again!");
+			return true;
+		}
+	}
+	console.log("this user doesn't exist, we can add them!, yay");
+	return false;
+	
 }
+
+async function add_user()
 	
 
 app.use(function(req, res, next) {
