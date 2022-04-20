@@ -8,6 +8,7 @@ import Login from './Login'
 import Search from './Search'
 import Settings from './Settings'
 import Stories from './Stories'
+import Registration from './Registration'
 
 //npm install react-router-dom@6
 
@@ -25,6 +26,7 @@ const App = props => {
           <Route path="/search" element={<Search />}></Route>
           <Route path="/settings" element={<Settings />}></Route>
           <Route path="/stories" element={<Stories />}></Route>
+	 	  <Route path="/registration" element={<Registration />}></Route>
         </Routes>
       </Router>
     </div>

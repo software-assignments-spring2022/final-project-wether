@@ -5,6 +5,7 @@ import './Login.css'
 const Login = props => {
   const [username,setUsername] =useState('');
   const [password,setPassword] =useState('');
+	
 
   function signin(e){
     if(username === '123' && password === '321'){
@@ -13,6 +14,11 @@ const Login = props => {
     }else{
       window.alert('Wrong username or password');
     }
+  }
+
+	
+  function registration() {
+	  window.location.replace("./Registration")
   }
 
   return (
@@ -25,6 +31,8 @@ const Login = props => {
       <input type="text" id="password" value={password} onInput={e => setPassword(e.target.value)}/>
       <br/>
       <button id='login' onClick={signin}>Sign in</button>
+      <h3>Don't have an account yet? Create one below!</h3>
+      <button id='login' onClick={registration}>Register!</button>
       {/* <br/>
       <button>Login with Google</button> */}
     </div>

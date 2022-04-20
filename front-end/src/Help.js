@@ -24,7 +24,7 @@ const Help = props => {
           </tr>
 	  	  <br/>
 	  	  <tr>
-            <td>What is this applicaiton used for?</td>
+            <td>What is this application used for?</td>
           </tr>
           <tr>
             <td>This application is used to check the weather in various location. It also allows users to have more detailed information about the weather so that users can be more throughly prepared for the weather in that specific location.</td>
