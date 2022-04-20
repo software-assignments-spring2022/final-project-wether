@@ -2,60 +2,20 @@
 const express = require("express")
 const PORT = 3000;
 const app = express()
-const multer = require('multer')
-const mongoose = require('mongoose')
     // const morgan = require('morgan')
     // const cors = require('cors') 
-    // const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
 // app.use(morgan('dev', { skip: (req, res) => process.env.NODE_ENV === 'test' }))
 // app.use(cors()) 
-main().catch(err => console.log(err));
-async function main() {
-	await mongoose.connect('mongodb://localhost:27017')
-	const userSchema = new mongoose.Schema({
-		user_name: String,
-		password: String,
-		account_created_on: String
-	});
-	userSchema.methods.created = function created() {
-		const print_format = "This account was created on, " +
-			  this.account_created_on;
-		console.log(print_format);
-	}
-	const User = mongoose.model('User', userSchema);
-	const user1 = new User({user_name: 'hellenekpo', password: 'agileiscool', account_created_on: Date.now().toString});
-	user1.created();
-	await user1.save();
-	const users = await User.find();
-	console.log(users);
-
-}
-//var storage = multer.diskStorage({
-//	//store files into a directory named 'uploads'
-//	destination: function(req, file, cb) {
-//		cb(null, "/uploads")
-//	},
-//	//rename the files to ncldue the current time and date
-//	filename: function (req, file, cb) {
-//		cb(null, file.fieldname + "-" + Date.now())
-//	},
-//})
-//
-//var upload = multer({storage: storage})
-//
-//app.post('/upload-route-example', upload.array('files'), req, res) => {
-//	console.log(JSON.stringify(req.files, null, 2))
-//	if (req.files.length) {
-//		res.json({success: true, message: 'thanks!'})
-//	}
-//	else {
-//		res.status(500).send({success: false, message "oh no!"})
-//	}
-//}
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+mongoose
+  .connect(`${process.env.DB_CONNECTION_STRING}`)
+  .then(data => console.log(`Connected to MongoDB`))
+  .catch(err => console.error(`Failed to connect to MongoDB: ${err}`))
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -118,10 +78,10 @@ app.post('/comments/vote', async(req, res) => {
         }
 
         if (req.body.good) {
-			console.log("We are attempting to the vote")
+			console.log("We are upvoting")
             tempComments[i].rating += 1
         } else {
-			console.log("We are down voting")
+			console.log("We are downvoting")
             tempComments[i].rating -= 1
         }
 		console.log('Success_upvote');
