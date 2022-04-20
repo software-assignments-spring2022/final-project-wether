@@ -2,12 +2,59 @@
 const express = require("express")
 const PORT = 3000;
 const app = express()
+const multer = require('multer')
+const mongoose = require('mongoose')
     // const morgan = require('morgan')
     // const cors = require('cors') 
     // const mongoose = require('mongoose')
 
 // app.use(morgan('dev', { skip: (req, res) => process.env.NODE_ENV === 'test' }))
 // app.use(cors()) 
+main().catch(err => console.log(err));
+async function main() {
+	await mongoose.connect('mongodb://localhost:27017')
+	const kittySchema = new mongoose.Schema({
+		name: String
+	});
+	kittySchema.methods.speak = function speak() {
+		const greeting = this.name
+		? "Meow my name is " + this.name
+		: "I don't have a name";
+		console.log(greeting);
+	}
+	const Kitten = mongoose.model('Kitten', kittySchema)
+	const silence = new Kitten({name: 'Silence'});
+	console.log(silence.name);
+	const fluffy = new Kitten({name: 'Fluffy'});
+	fluffy.speak();
+	await fluffy.save();
+	await silence.save();
+	fluffy.speak();
+	const kittens = await Kitten.find();
+	console.log(kittens);
+}
+//var storage = multer.diskStorage({
+//	//store files into a directory named 'uploads'
+//	destination: function(req, file, cb) {
+//		cb(null, "/uploads")
+//	},
+//	//rename the files to ncldue the current time and date
+//	filename: function (req, file, cb) {
+//		cb(null, file.fieldname + "-" + Date.now())
+//	},
+//})
+//
+//var upload = multer({storage: storage})
+//
+//app.post('/upload-route-example', upload.array('files'), req, res) => {
+//	console.log(JSON.stringify(req.files, null, 2))
+//	if (req.files.length) {
+//		res.json({success: true, message: 'thanks!'})
+//	}
+//	else {
+//		res.status(500).send({success: false, message "oh no!"})
+//	}
+//}
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
