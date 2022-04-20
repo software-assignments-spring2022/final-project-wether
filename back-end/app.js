@@ -13,25 +13,23 @@ const mongoose = require('mongoose')
 main().catch(err => console.log(err));
 async function main() {
 	await mongoose.connect('mongodb://localhost:27017')
-	const kittySchema = new mongoose.Schema({
-		name: String
+	const userSchema = new mongoose.Schema({
+		user_name: String,
+		password: String,
+		account_created_on: String
 	});
-	kittySchema.methods.speak = function speak() {
-		const greeting = this.name
-		? "Meow my name is " + this.name
-		: "I don't have a name";
-		console.log(greeting);
+	userSchema.methods.created = function created() {
+		const print_format = "This account was created on, " +
+			  this.account_created_on;
+		console.log(print_format);
 	}
-	const Kitten = mongoose.model('Kitten', kittySchema)
-	const silence = new Kitten({name: 'Silence'});
-	console.log(silence.name);
-	const fluffy = new Kitten({name: 'Fluffy'});
-	fluffy.speak();
-	await fluffy.save();
-	await silence.save();
-	fluffy.speak();
-	const kittens = await Kitten.find();
-	console.log(kittens);
+	const User = mongoose.model('User', userSchema);
+	const user1 = new User({user_name: 'hellenekpo', password: 'agileiscool', account_created_on: Date.now().toString});
+	user1.created();
+	await user1.save();
+	const users = await User.find();
+	console.log(users);
+
 }
 //var storage = multer.diskStorage({
 //	//store files into a directory named 'uploads'
