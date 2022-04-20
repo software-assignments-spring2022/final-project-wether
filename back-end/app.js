@@ -42,7 +42,7 @@ async function check_user_exists(User, currname) {
 			console.log("this user already exists, not adding them to the database again!");
 			return true;
 		}
-		console.log("this user doesn't exist, we can add them!");
+		console.log("this user doesn't exist, we can add them!, yay");
 	}
 	return false;
 	
