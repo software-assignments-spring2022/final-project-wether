@@ -106,7 +106,14 @@ app.get('/listusers', async(req, res) => {
 	res.json({
 		userlist: currusers
 	})
-})
+});
+
+app.get('/username', async(req, res) => {
+	res.json({
+		username: username_loggedin
+	})
+});
+
 app.post('/comments/new', async(req, res) => {
     try {
         newCmt = {}
@@ -129,7 +136,6 @@ function time_out() {
 }
 app.post('/loggedin', async(req, res) => {
 	try {
-		console.log("Trying to use this function")
 		username_loggedin = req.body.username;
 		password_loggedin = req.body.password;
 		console.log(username_loggedin);
