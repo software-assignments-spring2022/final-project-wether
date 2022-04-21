@@ -16,8 +16,8 @@ const Login = props => {
 		  const users_list = response.data.userlist;
 		  console.log(users_list);
 		  for (let i = 0; i < users_list.length; ++i) {
-			  if (users_list[i].username == username) {
-				  if (users_list[i].password == password) {
+			  if (users_list[i].username === username) {
+				  if (users_list[i].password === password) {
 					  window.alert('Login success');
 				  }
 				  else {
