@@ -15,8 +15,8 @@ const Comments = props => {
 
   const postComment = (content, e) => {
     e.preventDefault()
-    get_username();
-    if (content){
+	get_username();
+    if (content && (username !== "")){
       axios
       .post(`http://localhost:8080/comments/new`, {
         content: content,
@@ -41,6 +41,7 @@ const Comments = props => {
   
 
   const fetchComments = () => {
+	  get_username();
     axios
       .get(`http://localhost:8080/comments`)
       .then(response => {
@@ -71,12 +72,12 @@ const Comments = props => {
     const intervalHandle = setInterval(() => {
       fetchComments()
 	  
-    }, 1000)
+    }, 500)
 
     return e => {
       clearInterval(intervalHandle)
     }
-  }, [])
+  })
 
   return (
     <div>
@@ -96,7 +97,7 @@ const Comments = props => {
         <div id='footer'>
           <form>
             <div>
-              <Link to='/login'>Login</Link>
+			  {username === "" ? <Link to='/login'>Login</Link> : <p id= 'logged-in'>{username}</p>}
               <button id='new-comment-submit' onClick={(e) => postComment(content, e)}>Post</button>
             </div>
             <input type='text' value={content} placeholder='add a comment' onChange={(e) => setContent(e.target.value)}/>
