@@ -7,7 +7,7 @@ import './Comment.css';
 const Comment = props => {
     const vote = (good) => {
         axios
-            .post(`http://localhost:3000/comments/vote`, {
+            .post(`http://localhost:8080/comments/vote`, {
                 good: good,
                 uid: props.cmtUID
             })

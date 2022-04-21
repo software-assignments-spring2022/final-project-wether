@@ -11,17 +11,17 @@ const Registration = props => {
 	  function register(e){
     if(username1 && password1){
 		axios
-		.post(`http://localhost:3000/register/new`, {
+		.post(`http://localhost:8080/register/new`, {
 			username: username1, 
 			password: password1
 		})
 		.catch(err => {
                 console.log(err)
           })
-      window.alert('Login success');
+      window.alert('able to register');
       
     }else{
-      window.alert('Wrong username or password');
+      window.alert('cant register');
     }
   }
 

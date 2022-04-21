@@ -1,6 +1,6 @@
 // require('dotenv').config({ silent: true })
 const express = require("express");
-const PORT = 3000;
+const PORT = 8080;
 const app = express()
     // const morgan = require('morgan')
     // const cors = require('cors') 
@@ -25,12 +25,15 @@ app.use(express.urlencoded({ extended: true }))
 	const User = mongoose.model('User', userSchema);
 	
 let currusers = [];
-main1().catch(err => console.log(err));
+let username_loggedin = "";
+let password_loggedin = "";
 main().catch(err => console.log(err));
-async function main1() {
-	add_user(User, "hellenekpo", "agilecool")
-}
 async function main() {
+	await mongoose.connect('mongodb://localhost:27017')
+	console.log("looking the users")
+	console.log("waiting...")
+	console.log("curr user thats logged in " + username_loggedin)
+	console.log("curr passwords thats logged in " + password_loggedin)
 	currusers = await User.find();
 console.log(currusers);
 //	await mongoose.connect('mongodb://localhost:27017')
@@ -86,7 +89,7 @@ app.get('/', function(req, res) {
 });
 
 app.listen(PORT, () => {
-	console.log('Server is listening on port: ${PORT}');
+	console.log('Server is listening on port: ' + PORT);
 });
 
 let tempComments = []
@@ -124,9 +127,21 @@ app.post('/comments/new', async(req, res) => {
 function time_out() {
 	console.log("in time out");
 }
+app.post('/loggedin', async(req, res) => {
+	try {
+		console.log("Trying to use this function")
+		username_loggedin = req.body.username;
+		password_loggedin = req.body.password;
+		console.log(username_loggedin);
+		console.log(password_loggedin);
+	}
+	catch (err) {
+		console.error(err)
+		res.sendStatus(400);
+	}
+});
 
 app.post('/register/new', async(req, res) => {
-	await mongoose.connect('mongodb://localhost:27017')
 	try {
 		console.log(req.body.username);
 		console.log(req.body.password);
