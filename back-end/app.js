@@ -12,8 +12,27 @@ const mongoose = require('mongoose')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-//main().catch(err => console.log(err));
-//async function main() {
+	const userSchema = new mongoose.Schema({
+		username: String,
+		password: String,
+		date_account_created: String
+	});
+	userSchema.methods.notifycreation = function created() {
+		const print_creation = "This account was created" +
+			  this.date_account_created;
+		console.log(print_creation);
+	}
+	const User = mongoose.model('User', userSchema);
+	
+let currusers = [];
+main1().catch(err => console.log(err));
+main().catch(err => console.log(err));
+async function main1() {
+	add_user(User, "hellenekpo", "agilecool")
+}
+async function main() {
+	currusers = await User.find();
+console.log(currusers);
 //	await mongoose.connect('mongodb://localhost:27017')
 //	const userSchema = new mongoose.Schema({
 //		username: String,
@@ -29,25 +48,22 @@ app.use(express.urlencoded({ extended: true }))
 //
 //	//const users = await User.find();
 //	//console.log(users);
-//}
-
+}
+setInterval(main, 5000);
 //const User = mongoose.model('User', userSchema);
 
 async function find_user(User, currname) {
-	const users = await User.find({username: "hellenekpo"});
+	const users = await User.find({username: "123"});
 	if (users.length > 0) {
 		console.log("This user already exist!")
-		return new Promise((resolve, reject) => {
-			console.log("Yeah");
-			resolve();
-		});
+		return Promise.resolve(100);
 	}
 	else {
-		return new Promise((resolve, reject) => {
-			console.log("This user doesn't exist!");
-			resolve();
-		})
+		console.error("You can add the user");
+		return Promise.reject(400);
+	
 	}
+
 }
 
 
@@ -100,28 +116,26 @@ app.post('/comments/new', async(req, res) => {
     }
 });
 
+function time_out() {
+	console.log("in time out");
+}
+
 app.post('/register/new', async(req, res) => {
 	await mongoose.connect('mongodb://localhost:27017')
-	const userSchema = new mongoose.Schema({
-		username: String,
-		password: String,
-		date_account_created: String
-	});
-	userSchema.methods.notifycreation = function created() {
-		const print_creation = "This account was created" +
-			  this.date_account_created;
-		console.log(print_creation);
-	}
-	const User = mongoose.model('User', userSchema);
 	try {
-		var result = false;
-		console.log(res.username);
-		console.log(res.password);
-	setTimeout(() => {result = find_user(User, req.username)}, 5000);
-		console.log(result);
-		if (result != "Success") {
+		console.log(req.body.username);
+		console.log(req.body.password);
+		result = true;
+		for (let i = 0; i < currusers.length; ++i) {
+        if (currusers[i].username == req.body.username) {
+            console.log("Cannot add user")
+			result = false;
+        }	
+    }
+		if (result == true) {
 			console.log("DOESN'T EXIST");
-			add_user(User, req.username, req.password);
+			setTimeout(() => {time_out()}, 5000);
+			add_user(User, req.body.username, req.body.password)
 		}
 		else {
 			console.log("It already exists!");
