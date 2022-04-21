@@ -7,6 +7,7 @@ import './Comments.css'
 
 let cmtCnt = 0
 let commentuid = []
+let username = ""
 const Comments = props => {
   const [cmtList, setCmtList] = useState([])
   const [content, setContent] = useState('')
@@ -14,12 +15,12 @@ const Comments = props => {
 
   const postComment = (content, e) => {
     e.preventDefault()
-    
+    get_username();
     if (content){
       axios
-      .post(`http://localhost:3000/comments/new`, {
+      .post(`http://localhost:8080/comments/new`, {
         content: content,
-        author: 'BobTheBuilder12'
+        author: username
       })
       .then(
         () => setContent('')
@@ -30,10 +31,18 @@ const Comments = props => {
     }
   }
   
+  const get_username = () => {
+	  axios
+	  .get(`http://localhost:8080/username`)
+	  .then(response => {
+		  username = response.data.username
+	  })
+  }
+  
 
   const fetchComments = () => {
     axios
-      .get(`http://localhost:3000/comments`)
+      .get(`http://localhost:8080/comments`)
       .then(response => {
         const comments = response.data.comments
         console.log(comments)
