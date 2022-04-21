@@ -49,7 +49,7 @@ console.log(currusers);
 //	//const users = await User.find();
 //	//console.log(users);
 }
-setInterval(main, 5000);
+setInterval(main, 10000);
 //const User = mongoose.model('User', userSchema);
 
 async function find_user(User, currname) {
@@ -99,6 +99,11 @@ app.get('/comments', async(req, res) => {
     })
 });
 
+app.get('/listusers', async(req, res) => {
+	res.json({
+		userlist: currusers
+	})
+})
 app.post('/comments/new', async(req, res) => {
     try {
         newCmt = {}

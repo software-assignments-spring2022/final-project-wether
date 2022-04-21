@@ -1,6 +1,7 @@
 //import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import './Login.css'
+import axios from 'axios'
 
 const Login = props => {
   const [username,setUsername] =useState('');
@@ -8,8 +9,24 @@ const Login = props => {
 	
 
   function signin(e){
-    if(username === '123' && password === '321'){
-      window.alert('Login success');
+    if(username && password ){
+	  axios
+	  .get(`http://localhost:3000/listusers`)
+	  .then(response => {
+		  const users_list = response.data.userlist;
+		  console.log(users_list);
+		  for (let i = 0; i < users_list.length; ++i) {
+			  if (users_list[i].username == username) {
+				  if (users_list[i].password == password) {
+					  window.alert('Login success');
+				  }
+				  else {
+					  window.alert('Wrong password');
+				  }
+			  }
+		  }
+		  
+	  })
       
     }else{
       window.alert('Wrong username or password');
