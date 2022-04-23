@@ -2,6 +2,7 @@
 const express = require("express");
 const PORT = 8080;
 const app = express()
+const router = express.Router();
     // const morgan = require('morgan')
     // const cors = require('cors') 
 const mongoose = require('mongoose')
@@ -23,11 +24,20 @@ app.use(express.urlencoded({ extended: true }))
 		console.log(print_creation);
 	}
 	const User = mongoose.model('User', userSchema);
-	
-let currusers = [];
-let username_loggedin = "";
-let password_loggedin = "";
-main().catch(err => console.log(err));
+    const commentSchema = new mongoose.Schema({
+		content: String,
+		author: String,
+		rating: Number,
+		uid: Number
+	});
+	const Comment = mongoose.model('Comment', commentSchema);
+	let currusers = [];
+	let username_loggedin = "";
+	let password_loggedin = "";
+    let tempComments = []
+	let commentslist = []
+    let cmtUID = 0 // unique id
+	main().catch(err => console.log(err));
 async function main() {
 	await mongoose.connect('mongodb://localhost:27017')
 	console.log("looking the users")
@@ -35,7 +45,9 @@ async function main() {
 	console.log("curr user thats logged in " + username_loggedin)
 	console.log("curr passwords thats logged in " + password_loggedin)
 	currusers = await User.find();
-console.log(currusers);
+	tempComments = await Comment.find();
+    console.log(currusers);
+
 //	await mongoose.connect('mongodb://localhost:27017')
 //	const userSchema = new mongoose.Schema({
 //		username: String,
@@ -70,6 +82,11 @@ async function find_user(User, currname) {
 }
 
 
+async function add_comment(Comment, user_name, comment1) {
+	const comment = new Comment({content: comment1, author: user_name, rating: 0, uid: cmtUID});
+	await comment.save();
+}
+
 
 async function add_user(User, user_name, pass_word) {
 	const user = new User({username: user_name, password: pass_word, data_account_created: Date.now()});
@@ -83,6 +100,7 @@ app.use(function(req, res, next) {
     next();
 });
 
+
 app.get('/', function(req, res) {
 	console.log("Success");
    // res.render('index', {});
@@ -92,10 +110,9 @@ app.listen(PORT, () => {
 	console.log('Server is listening on port: ' + PORT);
 });
 
-let tempComments = []
-let cmtUID = 0 // unique id
 
 app.get('/comments', async(req, res) => {
+	//console.log(tempComments);
     res.json({
         comments: tempComments,
         status: 'success',
@@ -121,8 +138,8 @@ app.post('/comments/new', async(req, res) => {
         newCmt.author = req.body.author
         newCmt.rating = 0;
         newCmt.uid = cmtUID++;
-
         tempComments.push(newCmt)
+		add_comment(Comment, req.body.author, req.body.content)
 		console.log('Success');
         res.sendStatus(200); // ok
     } catch (err) {
@@ -140,9 +157,22 @@ app.post('/loggedin', async(req, res) => {
 		password_loggedin = req.body.password;
 		console.log(username_loggedin);
 		console.log(password_loggedin);
+		res.sendStatus(200);
 	}
 	catch (err) {
 		console.error(err)
+		res.sendStatus(400);
+	}
+});
+
+app.post('/signout', async(req, res) => {
+	try {
+		username_loggedin = "";
+		password_loggedin = "";
+		res.sendStatus(200);
+	}
+	catch (err) {
+		console.error(err);
 		res.sendStatus(400);
 	}
 });
@@ -186,6 +216,9 @@ function find_cmt_ind_by_uid(uid) {
 
 app.post('/comments/vote', async(req, res) => {
     try {
+		currcomment = await Comment.findOne({ uid: req.body.uid}).exec();
+		rating = currcomment.rating;
+		
         let i = find_cmt_ind_by_uid(req.body.uid)
         if (i < 0) {
             throw 'invalid comment uid: ' + req.body.uid.toString()
@@ -194,11 +227,17 @@ app.post('/comments/vote', async(req, res) => {
         if (req.body.good) {
 			console.log("We are upvoting")
             tempComments[i].rating += 1
+			rating++;
         } else {
 			console.log("We are downvoting")
             tempComments[i].rating -= 1
+			rating--;
         }
-		console.log('Success_upvote');
+		currcomment.rating = rating;
+		await currcomment.save();
+		console.log(currcomment.rating)
+		console.log(currcomment.content)
+		console.log(currcomment.author)
         res.sendStatus(200); // ok
     } catch (err) {
 		console.log("Idk whas happening")
