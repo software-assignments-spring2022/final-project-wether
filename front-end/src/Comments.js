@@ -11,8 +11,8 @@ let username = ""
 const Comments = props => {
   const [cmtList, setCmtList] = useState([])
   const [content, setContent] = useState('')
-  const [user_name, setUser] = useState('')
-  const [pass_word, setPassword] = useState('')
+  //const [user_name, setUser] = useState('')
+  //const [pass_word, setPassword] = useState('')
 
   const postComment = (content, e) => {
     e.preventDefault()
@@ -40,8 +40,8 @@ const Comments = props => {
 		  passowrd: ""
 	  })
 	  .then(
-	  	() => setUser(''), 
-		() => setPassword('')
+	  	//() => setUser(''), 
+		//() => setPassword('')
 	  )
 	  .catch(err => {
 		  console.error(err)

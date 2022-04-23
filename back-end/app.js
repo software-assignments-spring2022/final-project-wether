@@ -83,7 +83,7 @@ async function find_user(User, currname) {
 
 
 async function add_comment(Comment, user_name, comment1) {
-	const comment = new Comment({content: comment1, author: user_name, rating: 0, uid: cmtUID++});
+	const comment = new Comment({content: comment1, author: user_name, rating: 0, uid: cmtUID});
 	await comment.save();
 }
 
