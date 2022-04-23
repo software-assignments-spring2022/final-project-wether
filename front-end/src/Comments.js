@@ -7,19 +7,21 @@ import './Comments.css'
 
 let cmtCnt = 0
 let commentuid = []
+let username = ""
 const Comments = props => {
   const [cmtList, setCmtList] = useState([])
   const [content, setContent] = useState('')
-  //const [uid_1, setUID] = useState('')
+  //const [user_name, setUser] = useState('')
+  //const [pass_word, setPassword] = useState('')
 
   const postComment = (content, e) => {
     e.preventDefault()
-    
-    if (content){
+	get_username();
+    if (content && (username !== "")){
       axios
-      .post(`http://localhost:3000/comments/new`, {
+      .post(`http://localhost:8080/comments/new`, {
         content: content,
-        author: 'BobTheBuilder12'
+        author: username
       })
       .then(
         () => setContent('')
@@ -30,10 +32,35 @@ const Comments = props => {
     }
   }
   
+  const signout = (e) => {
+	  username = "";
+	  axios
+	  .post(`http://localhost:8080/signout`,{
+		  username: username,
+		  passowrd: ""
+	  })
+	  .then(
+	  	//() => setUser(''), 
+		//() => setPassword('')
+	  )
+	  .catch(err => {
+		  console.error(err)
+	  })
+  }
+  
+  const get_username = () => {
+	  axios
+	  .get(`http://localhost:8080/username`)
+	  .then(response => {
+		  username = response.data.username
+	  })
+  }
+  
 
   const fetchComments = () => {
+	  get_username();
     axios
-      .get(`http://localhost:3000/comments`)
+      .get(`http://localhost:8080/comments`)
       .then(response => {
         const comments = response.data.comments
         console.log(comments)
@@ -62,12 +89,12 @@ const Comments = props => {
     const intervalHandle = setInterval(() => {
       fetchComments()
 	  
-    }, 1000)
+    }, 500)
 
     return e => {
       clearInterval(intervalHandle)
     }
-  }, [])
+  })
 
   return (
     <div>
@@ -87,7 +114,8 @@ const Comments = props => {
         <div id='footer'>
           <form>
             <div>
-              <Link to='/login'>Login</Link>
+			  {username === "" ? <Link to='/login'>Login</Link> : <p id= 'logged-in'>{username}</p>}
+			  {username === "" ? null : <button id='new-comment-submit' onClick={(e) => signout(e)}>Sign Out</button>}
               <button id='new-comment-submit' onClick={(e) => postComment(content, e)}>Post</button>
             </div>
             <input type='text' value={content} placeholder='add a comment' onChange={(e) => setContent(e.target.value)}/>

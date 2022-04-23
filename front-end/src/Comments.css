@@ -9,6 +9,10 @@ h1 {
     color: dimgray;
 }
 
+#logged-in {
+	float: left;
+}
+
 #footer-div {
     position: fixed;
     border-top: 2px;
