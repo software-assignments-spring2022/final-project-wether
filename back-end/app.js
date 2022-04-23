@@ -76,11 +76,55 @@ app.listen(PORT, () => {
 let tempComments = []
 let cmtUID = 0 // unique id
 
+app.post('/search',async(req,res)=>{
+	console.log(req.body.key,req.body.state);
+})
+
+app.get('/location/newyork',async(req,res)=>{
+	res.json({
+		name:'New York',
+		//F
+		 F: [{
+			today: 70,
+			day1: 73,
+			day2: 72,
+			day3: 72,
+			day4: 72,
+			day5: 72,
+			day6: 72,	
+			}],
+
+		//C
+		C: [{
+			today: 21,
+			day1: 23,
+			day2: 22,
+			day3: 22,
+			day4: 22,
+			day5: 22,
+			day6: 22,	
+		}],
+		//forcastday
+		days: [{
+			today: 'Saturday',
+			day1: 'Sunday',
+			day2: 'Monday',
+			day3: 'Tuesday',
+			day4: 'Wednesday',
+			day5: 'Thursday',
+			day6: 'Friday',
+		}]
+
+
+	}) 
+});
+
 app.get('/comments', async(req, res) => {
     res.json({
         comments: tempComments,
         status: 'success',
     })
+
 });
 
 app.post('/comments/new', async(req, res) => {

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import sunny from './icons/sunny.png'
 import rain from './icons/rain.png'
 import cloud from './icons/cloud.png'
@@ -6,13 +7,40 @@ import cloud from './icons/cloud.png'
 import setting from './icons/setting.png'
 import story from './icons/story.png'
 import './Home.css'
+import axios from 'axios'
+
+
+
+
+
 
 const Home = props => {
+
+  const [name,setname] = useState('');
+  const [tempF,setTempF]= useState('');
+  const [tempC,setTempC]= useState('');
+  const [days,setDays] = useState('');
+
+  useEffect(() => {
+    axios
+    .get(`http://localhost:3000/location/newyork`)
+    .then(res=> {
+      setname(res.data.name)
+      setTempF(res.data.F[0])
+      setTempC(res.data.C[0])
+      setDays(res.data.days[0])
+    })
+  }, []);
   let tempSign = localStorage.getItem("tempSign");
+  let temp = tempF;
   if(tempSign == null){
     tempSign = 'F';
     localStorage.setItem("tempSign","F");
+  }else if(tempSign === "C"){
+    temp = tempC;
   }
+
+
   return (
     <div className="Home">
       
@@ -25,12 +53,12 @@ const Home = props => {
  
 
       <br/>
-      <div className='Location'>
-        <h1>New York, NY</h1>
+      <div className='Location'>   
+        <h1>{name}</h1>   
       </div>
       <div className='currentLocation'>
         <div className='Temperature'>
-          <h1>70 {tempSign}</h1>  
+          <h1> {temp.today}{tempSign}</h1>  
         </div>
         <div className='Icon'>
           <img src={sunny} alt="Weather Icon"/>
@@ -39,41 +67,36 @@ const Home = props => {
       
       <div className="Forecast">
         <div className="slide-item">
-            <h3>Sunday</h3>
-            <h3> 72 {tempSign}</h3>
+            <h3>{days.day1}</h3>
+            <h3> {temp.day1} {tempSign}</h3>
             <img className= 'Forecast-weather-icon' src={cloud} alt = "Forecast-weather" ></img>
         </div>
         <div className="slide-item">
-            <h3>Monday</h3>
-            <h3> 72 {tempSign}</h3>
+            <h3>{days.day2}</h3>
+            <h3> {temp.day2} {tempSign}</h3>
             <img className= 'Forecast-weather-icon' src={rain} alt = "Forecast-weather" ></img>
         </div>
         <div className="slide-item">
-            <h3>Tuesday</h3>
-            <h3> 72 {tempSign}</h3>
+            <h3>{days.day3}</h3>
+            <h3> {temp.day3} {tempSign}</h3>
             <img className= 'Forecast-weather-icon' src={sunny} alt = "Forecast-weather" ></img>
         </div>
         <div className="slide-item">
-            <h3>Wednesday</h3>
-            <h3> 72 {tempSign}</h3>
+            <h3>{days.day4}</h3>
+            <h3> {temp.day4} {tempSign}</h3>
             <img className= 'Forecast-weather-icon' src={cloud} alt = "Forecast-weather" ></img>
         </div>
         <div className="slide-item">
-            <h3>Thursday</h3>
-            <h3> 72 {tempSign}</h3>
+            <h3>{days.day5}</h3>
+            <h3> {temp.day5} {tempSign}</h3>
             <img className= 'Forecast-weather-icon' src={sunny} alt = "Forecast-weather" ></img>
         </div>
         <div className="slide-item">
-            <h3>Friday</h3>
-            <h3> 72 {tempSign}</h3>
+            <h3>{days.day6}</h3>
+            <h3> {temp.day6} {tempSign}</h3>
             <img className= 'Forecast-weather-icon' src={sunny} alt = "Forecast-weather" ></img>
         </div>
 
-        <div className="slide-item">
-            <h3>Saturday</h3>
-            <h3> 72 {tempSign}</h3>
-            <img className= 'Forecast-weather-icon' src={cloud} alt = "Forecast-weather" ></img>
-        </div>
       </div>
       
       <hr/>
