@@ -11,7 +11,8 @@ let username = ""
 const Comments = props => {
   const [cmtList, setCmtList] = useState([])
   const [content, setContent] = useState('')
-  //const [uid_1, setUID] = useState('')
+  const [user_name, setUser] = useState('')
+  const [pass_word, setPassword] = useState('')
 
   const postComment = (content, e) => {
     e.preventDefault()
@@ -29,6 +30,22 @@ const Comments = props => {
         console.log(err)
       })
     }
+  }
+  
+  const signout = (e) => {
+	  username = "";
+	  axios
+	  .post(`http://localhost:8080/signout`,{
+		  username: username,
+		  passowrd: ""
+	  })
+	  .then(
+	  	() => setUser(''), 
+		() => setPassword('')
+	  )
+	  .catch(err => {
+		  console.error(err)
+	  })
   }
   
   const get_username = () => {
@@ -98,6 +115,7 @@ const Comments = props => {
           <form>
             <div>
 			  {username === "" ? <Link to='/login'>Login</Link> : <p id= 'logged-in'>{username}</p>}
+			  {username === "" ? null : <button id='new-comment-submit' onClick={(e) => signout(e)}>Sign Out</button>}
               <button id='new-comment-submit' onClick={(e) => postComment(content, e)}>Post</button>
             </div>
             <input type='text' value={content} placeholder='add a comment' onChange={(e) => setContent(e.target.value)}/>

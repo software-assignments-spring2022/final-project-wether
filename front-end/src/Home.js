@@ -2,10 +2,15 @@ import { Link } from 'react-router-dom'
 import sunny from './icons/sunny.png'
 import rain from './icons/rain.png'
 import cloud from './icons/cloud.png'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 //import search from './icons/search.png'
 import setting from './icons/setting.png'
 import story from './icons/story.png'
 import './Home.css'
+
+
+let username = ""
 
 const Home = props => {
   let tempSign = localStorage.getItem("tempSign");
@@ -13,6 +18,25 @@ const Home = props => {
     tempSign = 'F';
     localStorage.setItem("tempSign","F");
   }
+	
+  const get_username = () => {
+	  axios
+	  .get(`http://localhost:8080/username`)
+	  .then(response => {
+		  username = response.data.username
+	  })
+  }
+  useEffect(() => {
+    get_username()
+    const intervalHandle = setInterval(() => {
+      get_username()
+	  
+    }, 500)
+
+    return e => {
+      clearInterval(intervalHandle)
+    }
+  })
   return (
     <div className="Home">
       
