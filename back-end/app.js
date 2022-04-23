@@ -2,7 +2,6 @@
 const express = require("express");
 const PORT = 8080;
 const app = express()
-const router = express.Router();
     // const morgan = require('morgan')
     // const cors = require('cors') 
 const mongoose = require('mongoose')
