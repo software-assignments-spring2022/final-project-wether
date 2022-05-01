@@ -1,0 +1,139 @@
+[{
+    "name":"Boston",
+     "F": [{
+        "today": 50,
+        "day1": 64,
+        "day2": 58,
+        "day3": 56,
+        "day4": 57,
+        "day5": 64,
+        "day6": 59	
+        }],
+
+
+    "C": [{
+        "today": 13,
+        "day1": 18,
+        "day2": 14,
+        "day3": 13,
+        "day4": 14,
+        "day5": 18,
+        "day6": 15
+    }],
+
+    "days": [{
+        "today": "Saturday",
+        "day1": "Sunday",
+        "day2": "Monday",
+        "day3": "Tuesday",
+        "day4": "Wednesday",
+        "day5": "Thursday",
+        "day6": "Friday"
+    }],
+
+    "Icon":[{
+        "today": "sunny",
+        "day1": "sunny",
+        "day2": "cloud",
+        "day3": "cloud",
+        "day4": "rain",
+        "day5": "cloud",
+        "day6": "cloud"
+    }]
+
+
+
+},
+
+{
+    "name":"New York",
+     "F": [{
+        "today": 56,
+        "day1": 68,
+        "day2": 56,
+        "day3": 63,
+        "day4": 61,
+        "day5": 70,
+        "day6": 50	
+        }],
+
+
+    "C": [{
+        "today": 19,
+        "day1": 20,
+        "day2": 13,
+        "day3": 17,
+        "day4": 16,
+        "day5": 21,
+        "day6": 16
+    }],
+
+    "days": [{
+        "today": "Saturday",
+        "day1": "Sunday",
+        "day2": "Monday",
+        "day3": "Tuesday",
+        "day4": "Wednesday",
+        "day5": "Thursday",
+        "day6": "Friday"
+    }],
+    "Icon":[{
+        "today": "sunny",
+        "day1": "cloud",
+        "day2": "rain",
+        "day3": "cloud",
+        "day4": "rain",
+        "day5": "cloud",
+        "day6": "rain"
+    }]
+
+
+},
+{
+    "name":"Chicago",
+     "F": [{
+        "today": 60,
+        "day1": 54,
+        "day2": 57,
+        "day3": 49,
+        "day4": 50,
+        "day5": 52,
+        "day6": 53	
+        }],
+
+
+    "C": [{
+        "today": 18,
+        "day1": 12,
+        "day2": 14,
+        "day3": 9,
+        "day4": 10,
+        "day5": 11,
+        "day6": 12
+    }],
+
+    "days": [{
+        "today": "Saturday",
+        "day1": "Sunday",
+        "day2": "Monday",
+        "day3": "Tuesday",
+        "day4": "Wednesday",
+        "day5": "Thursday",
+        "day6": "Friday"
+    }],
+    "Icon":[{
+        "today": "rain",
+        "day1": "cloud",
+        "day2": "cloud",
+        "day3": "rain",
+        "day4": "cloud",
+        "day5": "cloud",
+        "day6": "rain"
+    }]
+
+
+}
+
+
+
+]

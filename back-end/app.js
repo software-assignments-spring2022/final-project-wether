@@ -29,6 +29,8 @@ app.use(express.urlencoded({ extended: true }))
 		rating: Number,
 		uid: Number
 	});
+
+
 	const Comment = mongoose.model('Comment', commentSchema);
 	let currusers = [];
 	let username_loggedin = "";
@@ -91,7 +93,10 @@ async function add_user(User, user_name, pass_word) {
 	const user = new User({username: user_name, password: pass_word, data_account_created: Date.now()});
 	await user.save();
 }
-	
+
+const {Location} = require("./models/Location")
+
+
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -110,48 +115,31 @@ app.listen(PORT, () => {
 });
 
 
-app.post('/search',async(req,res)=>{
-	console.log(req.body.key,req.body.state);
-})
-
-app.get('/location/newyork',async(req,res)=>{
-	res.json({
-		name:'New York',
+app.get('/search',async(req,res)=>{
+	const loc = await Location.find({name:req.query.loc})
+	if (loc.length > 0) {
+		res.json({
+		name:loc[0].name,
 		//F
-		 F: [{
-			today: 70,
-			day1: 73,
-			day2: 72,
-			day3: 72,
-			day4: 72,
-			day5: 72,
-			day6: 72,	
-			}],
-
+		 F: loc[0].F,
 		//C
-		C: [{
-			today: 21,
-			day1: 23,
-			day2: 22,
-			day3: 22,
-			day4: 22,
-			day5: 22,
-			day6: 22,	
-		}],
+		C: loc[0].C,
 		//forcastday
-		days: [{
-			today: 'Saturday',
-			day1: 'Sunday',
-			day2: 'Monday',
-			day3: 'Tuesday',
-			day4: 'Wednesday',
-			day5: 'Thursday',
-			day6: 'Friday',
-		}]
+		days: loc[0].days,
 
-
+		Icon:loc[0].Icon
 	}) 
+
+	//console.log(req.params.loc)
+
+	}
+	else {
+		res.sendStatus(400)
+		console.error("Wrong location");
+	}
+	
 });
+
 
 app.get('/comments', async(req, res) => {
 	//console.log(tempComments);

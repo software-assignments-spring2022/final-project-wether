@@ -63,7 +63,7 @@ const Comments = props => {
       .get(`http://localhost:8080/comments`)
       .then(response => {
         const comments = response.data.comments
-        console.log(comments)
+        //console.log(comments)
         let newCmtList = []
 
         cmtCnt = 0
