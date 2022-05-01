@@ -18,12 +18,6 @@ const wether = {
 
 
 
-
-
-
-
-
-
 //let username = ""
 
 const Home = props => {
@@ -154,10 +148,6 @@ const Home = props => {
           </Link>
       </div> 
 
-
-
-
-      
       <div className='settings'>
         <Link to="/settings">
           <img src={setting} alt='setting'></img>

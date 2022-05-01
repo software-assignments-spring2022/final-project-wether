@@ -94,8 +94,14 @@ async function add_user(User, user_name, pass_word) {
 	await user.save();
 }
 
-const {Location} = require("./models/Location")
-
+var {Location} = require("./models/Location")
+Location.deleteMany().then(function(){
+	console.log("Clear data")
+})
+var locData = require("./Locations.json")
+for(const element of locData) {
+	new Location( element ).save();
+}
 
 
 app.use(function(req, res, next) {
