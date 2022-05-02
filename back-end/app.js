@@ -40,7 +40,7 @@ app.use(express.urlencoded({ extended: true }))
     let cmtUID = 0 // unique id
 	main().catch(err => console.log(err));
 async function main() {
-	await mongoose.connect('mongodb://localhost:27017')
+	await mongoose.connect('mongodb+srv://wether:wether@cluster0.31w9p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 	console.log("looking the users")
 	console.log("waiting...")
 	console.log("curr user thats logged in " + username_loggedin)
