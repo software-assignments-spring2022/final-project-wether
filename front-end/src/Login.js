@@ -28,7 +28,7 @@ function full_signin(e) {
   function if_loggedin(e) {
 	  console.log("in here!");
 	  axios
-	  .post(`http://localhost:8080/loggedin`, {
+	  .post(`${process.env.REACT_APP_SERVER_HOSTNAME}/loggedin`, {
 		  username: username,
 		  password: password
 	  })
@@ -43,7 +43,7 @@ function full_signin(e) {
   function signin(e){
     if(username && password ){
 	  axios
-	  .get(`http://localhost:8080/listusers`)
+	  .get(`${process.env.REACT_APP_SERVER_HOSTNAME}/listusers`)
 	  .then(response => {
 		  const users_list = response.data.userlist;
 		  console.log(users_list);

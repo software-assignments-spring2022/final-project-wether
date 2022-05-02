@@ -19,7 +19,7 @@ const Comments = props => {
 	get_username();
     if (content && (username !== "")){
       axios
-      .post(`http://localhost:8080/comments/new`, {
+      .post(`${process.env.REACT_APP_SERVER_HOSTNAME}/comments/new`, {
         content: content,
         author: username
       })
@@ -35,7 +35,7 @@ const Comments = props => {
   const signout = (e) => {
 	  username = "";
 	  axios
-	  .post(`http://localhost:8080/signout`,{
+	  .post(`${process.env.REACT_APP_SERVER_HOSTNAME}/signout`,{
 		  username: username,
 		  passowrd: ""
 	  })
@@ -50,7 +50,7 @@ const Comments = props => {
   
   const get_username = () => {
 	  axios
-	  .get(`http://localhost:8080/username`)
+	  .get(`${process.env.REACT_APP_SERVER_HOSTNAME}/username`)
 	  .then(response => {
 		  username = response.data.username
 	  })
@@ -60,7 +60,7 @@ const Comments = props => {
   const fetchComments = () => {
 	  get_username();
     axios
-      .get(`http://localhost:8080/comments`)
+      .get(`${process.env.REACT_APP_SERVER_HOSTNAME}/comments`)
       .then(response => {
         const comments = response.data.comments
         //console.log(comments)

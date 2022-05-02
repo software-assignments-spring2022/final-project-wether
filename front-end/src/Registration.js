@@ -11,7 +11,7 @@ const Registration = props => {
 	  function register(e){
     if(username1 && password1){
 		axios
-		.post(`http://localhost:8080/register/new`, {
+		.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/register/new`, {
 			username: username1, 
 			password: password1
 		})

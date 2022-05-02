@@ -18,7 +18,7 @@ const Search = props => {
 
   useEffect(() => {
     axios
-    .get(`http://localhost:8080/search`,{
+    .get(`${process.env.REACT_APP_SERVER_HOSTNAME}/search`,{
       params:{
         loc:"New York"
       }
@@ -34,7 +34,7 @@ const Search = props => {
   const searchlocation = (location, e) => {
     console.log(location);
     axios
-    .get(`http://localhost:8080/search`,{
+    .get(`${process.env.REACT_APP_SERVER_HOSTNAME}/search`,{
       params:{
         loc:location
       }

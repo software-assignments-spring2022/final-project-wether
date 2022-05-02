@@ -17,6 +17,7 @@
     },
     "homepage": "https://github.com/software-assignments-spring2022/final-project-wether#readme",
     "dependencies": {
+        "dotenv": "^16.0.0",
         "express": "^4.17.3",
         "mongoose": "^6.3.0",
         "multer": "^1.4.4"
