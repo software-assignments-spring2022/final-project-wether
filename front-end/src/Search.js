@@ -1,11 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import sunny from './icons/sunny.png'
-import rain from './icons/rain.png'
-import cloud from './icons/cloud.png'
-import search from './icons/search.png'
-import setting from './icons/setting.png'
-import story from './icons/story.png'
 import './Search.css'
 import axios from 'axios'
 
