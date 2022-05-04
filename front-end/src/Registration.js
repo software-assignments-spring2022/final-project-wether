@@ -36,7 +36,7 @@ const Registration = props => {
       <input type="text" id="password" value={password1} onInput={e => setPassword(e.target.value)}/>
       <br/>
       <button id='login' onClick={register}>Register</button>
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
 		</div>
 	);
 }
